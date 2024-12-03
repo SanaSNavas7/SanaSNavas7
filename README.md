@@ -1,6 +1,6 @@
 # 👋 Hi, I'm Sana S. Navas! 
 
-### 🌟 Full-Stack Developer | Data Scientist | Machine Learning Enthusiast
+### 🌟 | Data Scientist | Machine Learning Enthusiast
 
 I am passionate about building impactful solutions using cutting-edge technologies. From web development to data-driven decision-making, I thrive on exploring diverse tech domains. 🚀
 
