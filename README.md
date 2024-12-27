@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=40&duration=3000&pause=500&color=00FFDD&center=true&vCenter=true&width=1000&lines=Welcome+to+Sana+S.+Navas's+GitHub;Exploring+the+Cosmos+of+Code;Aspiring+Data+Scientist+and+Developer!" alt="Typing Animation" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=40&duration=3000&pause=500&color=00FFDD&center=true&vCenter=true&width=1000&lines=Welcome+to+Sana+S.+Navas's+GitHub;Exploring+the+Cosmos+of+Code;Aspiring+Data+Scientist+and+Developer!" alt="Space Typing Animation" />
 </p>
 
 ---
 
 <p align="center">
-  <img src="https://media.giphy.com/media/TlK63IISqEYp64j6Bx/giphy.gif" alt="Professional Animation" width="70%"/>
+  <img src="https://media.giphy.com/media/8bUWW59w5M4mY/giphy.gif" alt="Space Animation" width="70%"/>
 </p>
 
 ---
@@ -30,7 +30,8 @@ Hello! I’m an **MCA student** charting my journey through the vast universe of
 </p>
 
 <p align="center">
-  <img src="https://activity-graph.herokuapp.com/graph?username=sanasnavas&theme=react-dark&hide_border=true&custom_title=🌌+Sana's+Activity+Graph" alt="GitHub Contribution Graph" width="100%" />
+  <!-- Updated Contribution Graph URL -->
+  <img src="https://github-readme-activity-graph.cyclic.app/graph?username=sanasnavas&theme=react-dark&hide_border=true&custom_title=🌌+Sana's+Activity+Graph" alt="GitHub Contribution Graph" width="100%" />
 </p>
 
 ---
