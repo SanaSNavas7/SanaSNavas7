@@ -1,3 +1,28 @@
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=40&duration=3000&pause=500&color=00FFDD&center=true&vCenter=true&width=1000&lines=Welcome+to+Sana+S.+Navas's+GitHub;Exploring+the+Cosmos+of+Code;Aspiring+Data+Scientist+and+Developer!" alt="Space Typing Animation" />
+</p>
+
+---
+
+<!-- Space Animation - Starfield -->
+<p align="center">
+  <img src="https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif" alt="Space Animation" width="100%" />
+</p>
+
+---
+
+<!-- Spinning Planet Animation -->
+<p align="center">
+  <img src="https://cdn.dribbble.com/users/5251/screenshots/16674643/media/7dbe4e1b6ee2bb3a576b035b9d84f67c.gif" alt="Spinning Planet" width="60%" />
+</p>
+
+---
+
+<div align="center">
+  <img src="https://img.shields.io/badge/-Exploring%20New%20Galaxies-blueviolet?style=for-the-badge" alt="Exploration Banner" />
+</div>
+
+---
 
 
 <div align="center">
