@@ -1,31 +1,40 @@
-# 👋 Hi, I'm Sana S. Navas! 
+# 👋 Hi, I'm Sana S. Navas!
 
-### 🌟 | Data Scientist | Machine Learning Enthusiast
+### 🌟 | MCA Student | Aspiring Data Scientist & Developer
 
-I am passionate about building impactful solutions using cutting-edge technologies. From web development to data-driven decision-making, I thrive on exploring diverse tech domains. 🚀
+Welcome to my GitHub profile! I'm an aspiring Data Scientist and Developer, passionate about building impactful solutions using technology. I specialize in **web development**, **machine learning**, and **data science**. Always exploring new technologies and learning something new every day! 🚀
 
 ---
 
-### 🛠️ My Tech Arsenal:
+## 🛠️ Skills & Tech Stack:
 
-#### 💻 Programming Languages:
+### 💻 Languages:
 - **Proficient:** Python, Java, C, C++
-- **Web:** HTML, CSS, JavaScript (React.js)
+- **Web Development:** HTML, CSS, JavaScript (React.js)
 
-#### 📊 Data & Machine Learning:
+### 📊 Data Science & ML:
 - **Tools & Libraries:** pandas, NumPy, scikit-learn, TensorFlow
-- **Databases:** SQL,  DBMS
+- **Databases:** SQL, DBMS
 
-#### 🌐 Web Development:
+### 🌐 Web Development:
 - **Frontend:** React.js, Bootstrap
 
+---
 
-#### 🧠 Data Science:
-- Exploratory Data Analysis (EDA), Data Visualization, Predictive Modeling
+## 📚 Featured Projects:
+
+### 🔬 Diabetes Prediction Using Machine Learning
+- A machine learning project to predict diabetes based on various patient data. [Learn more](#)
+
+### 🌍 Climate Data Analysis
+- Analyzing climate data to derive insights and patterns using Python. [Learn more](#)
+
+### 🖥️ Portfolio Website
+- A personal website showcasing my projects and skills. [Learn more](#)
 
 ---
 
-### 📈 GitHub Stats:
+## 📈 GitHub Stats:
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=sanasnavas&show_icons=true&theme=radical" alt="Sana's GitHub Stats" width="48%" />
@@ -34,17 +43,10 @@ I am passionate about building impactful solutions using cutting-edge technologi
 
 ---
 
-### 📚 Featured Projects:
-- 🔬 [Diabetes Prediction Using Machine Learning](https://github.com/sanasnavas/diabetes-prediction)
-- 🌍 [Climate Data Analysis Using Python](https://github.com/sanasnavas/climate-analysis)
-- 🖥️ [Portfolio Website](https://github.com/sanasnavas/portfolio-website)
+## 🌐 Let's Connect:
+
+I'm open to collaborating on exciting **web development**, **data science**, and **AI** projects. Feel free to reach out!
 
 ---
 
-### 🌐 Let's Connect:
-- 💼 [LinkedIn](https://www.linkedin.com/in/sanasnavas)
-- 📧 [Email](mailto:sanasnavas100@gmail.com)
-
----
-
-<p align="center">💻 Open to collaborations in web development, data science, and AI projects!</p>
+Thanks for visiting my GitHub profile! 😊
