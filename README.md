@@ -82,7 +82,8 @@ Hello! I’m an **MCA student** charting my journey through the vast universe of
 
 ## 🌌 Stargaze My GitHub Contributions:
 
-![GitHub Activity Graph](https://github-readme-activity-graph.cyclic.app/graph?username=sanasnavas&theme=react-dark&hide_border=true&custom_title=GitHub+Activity+Graph)
+![GitHub Activity Graph](https://github-readme-stats.vercel.app/api?username=sanasnavas&show_icons=true&hide_title=true&count_private=true&hide=prs&theme=radical)
+
 
 
 ## 🌠 Connect with Me:
