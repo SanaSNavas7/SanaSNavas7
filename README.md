@@ -4,11 +4,6 @@
 
 ---
 
-
-
----
-
-
 <div align="center">
   <img src="https://img.shields.io/badge/-Exploring%20New%20Galaxies-blueviolet?style=for-the-badge" alt="Exploration Banner" />
 </div>
@@ -21,13 +16,19 @@ Hello! I’m an **MCA student** charting my journey through the vast universe of
 
 ---
 
-## 🌟 My Cosmic GitHub Highlights:
+## 🌟 My GitHub Highlights:
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=sanasnavas&show_icons=true&theme=tokyonight" alt="GitHub Stats" width="48%" />
   <img src="https://github-readme-streak-stats.herokuapp.com?user=sanasnavas&theme=tokyonight" alt="GitHub Streak" width="48%" />
 </p>
 
+<p align="center">
+  <!-- Contribution Graph -->
+  <img src="https://github-readme-activity-graph.cyclic.app/graph?username=sanasnavas&theme=react-dark&hide_border=true&custom_title=🌌+Sana's+Activity+Graph" alt="GitHub Contribution Graph" width="100%" />
+</p>
+
+---
 
 ## 🚀 Skills & Tech Stack:
 
@@ -72,6 +73,12 @@ Hello! I’m an **MCA student** charting my journey through the vast universe of
   - Tools: React.js, HTML, CSS, JavaScript
 
 ---
+
+## 🌌 Stargaze My GitHub Contributions:
+
+<p align="center">
+  <img src="https://github-contributor-stats.vercel.app/api?username=sanasnavas&theme=tokyonight" alt="GitHub Contribution Stats" width="85%" />
+</p>
 
 ---
 
