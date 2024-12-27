@@ -5,16 +5,30 @@
 
 ---
 
-<p align="center">
-  <!-- Commit Animation -->
-  <img src="https://github.com/sanasnavas/sanasnavas/blob/main/assets/commits-animation.gif" alt="Commit Animation" width="85%" />
-</p>
-
----
-
 ### 🌟 About Me
 
 I'm a **MCA student** and an **aspiring Data Scientist & Developer** with a deep passion for technology. I enjoy working on projects in **web development**, **machine learning**, and **data science** that can make a real-world impact. Every day is an opportunity to learn and grow! 🌱
+
+---
+
+### 📈 GitHub Stats & Contributions:
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=sanasnavas&show_icons=true&theme=radical" alt="GitHub Stats" width="48%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=sanasnavas&theme=radical" alt="GitHub Streak" width="48%" />
+</p>
+
+<p align="center">
+  <!-- Contribution Skyline -->
+  <a href="https://skyline.github.com/sanasnavas/2024">
+    <img src="https://github.com/sanasnavas/sanasnavas/blob/main/assets/skyline-preview.png" alt="Contribution Skyline" width="85%" />
+  </a>
+</p>
+
+<p align="center">
+  <!-- GitHub Contribution Graph -->
+  <img src="https://github-contribution-graph-echi.vercel.app/api?username=sanasnavas&bg_color=1a1b27&color=00e6ff&line=00ffb9&point=ffffff&area=true&hide_border=true" alt="GitHub Contribution Graph" width="85%" />
+</p>
 
 ---
 
@@ -49,34 +63,12 @@ I'm a **MCA student** and an **aspiring Data Scientist & Developer** with a deep
 ### 📚 Featured Projects:
 
 #### 🔬 [Diabetes Prediction Using Machine Learning](#)
-<p>
-  <img src="https://img.icons8.com/color/48/000000/diabetes.png" alt="Diabetes Icon" />
-  Predicting diabetes based on patient data using **machine learning models**.  
+- Predicting diabetes based on patient data using **machine learning models**.  
   Tools: Python, scikit-learn, pandas, Matplotlib
-</p>
-
----
 
 #### 🌍 [Climate Data Analysis](#)
-<p>
-  <img src="https://img.icons8.com/external-flat-juicy-fish/48/000000/external-climate-science-and-research-flat-flat-juicy-fish.png" alt="Climate Icon" />
-  Analyzing climate data to derive actionable insights using **data science techniques**.  
+- Analyzing climate data to derive actionable insights using **data science techniques**.  
   Tools: Python, pandas, NumPy, seaborn
-</p>
-
----
-
-### 📈 GitHub Stats, Contribution Graph & Activity:
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=sanasnavas&show_icons=true&theme=radical" alt="GitHub Stats" width="48%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=sanasnavas&theme=radical" alt="GitHub Streak" width="48%" />
-</p>
-
-<p align="center">
-  <!-- Contribution Graph -->
-  <img src="https://activity-graph.herokuapp.com/graph?username=sanasnavas&bg_color=1a1b27&color=fcba03&line=fc033d&point=00d9ff&area=true&hide_border=true" alt="Contribution Graph" width="85%" />
-</p>
 
 ---
 
@@ -87,7 +79,3 @@ I'm a **MCA student** and an **aspiring Data Scientist & Developer** with a deep
   <a href="https://twitter.com/sanasnavas"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" /></a>
   <a href="https://github.com/sanasnavas"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
 </p>
-
----
-
-✨ **Thank you for visiting my GitHub profile!** 😊
