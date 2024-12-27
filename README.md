@@ -1,5 +1,11 @@
 # 👋 Hi, I'm Sana S. Navas!
 
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=F75C7E&center=true&vCenter=true&width=440&lines=Welcome+to+My+GitHub+Profile!+🌟;Aspiring+Data+Scientist+and+Developer!;Exploring+Tech+Every+Day!+🚀" alt="Typing SVG" />
+</p>
+
+---
+
 ### 🌟 | MCA Student | Aspiring Data Scientist & Developer
 
 Welcome to my GitHub profile! I'm an aspiring Data Scientist and Developer, passionate about building impactful solutions using technology. I specialize in **web development**, **machine learning**, and **data science**. Always exploring new technologies and learning something new every day! 🚀
@@ -25,10 +31,6 @@ Welcome to my GitHub profile! I'm an aspiring Data Scientist and Developer, pass
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
-
-### 💾 Databases:
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 
 ---
 
@@ -65,6 +67,8 @@ A personal website showcasing my projects and skills.
 ## 🌐 Let's Connect:
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sanasnavas/)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/sanasnavas)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sanasnavas)
 
 ---
 
