@@ -1,38 +1,36 @@
 <p align="center">
-  <!-- Typing Animation -->
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=35&duration=3000&pause=500&color=FF5733&center=true&vCenter=true&width=1000&lines=👋+Hi,+I'm+Sana+S.+Navas!;🌟+Aspiring+Data+Scientist+and+Developer;🚀+Passionate+About+Innovation+and+Learning!" alt="Typing Animation" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=35&duration=3000&pause=500&color=FF5733&center=true&vCenter=true&width=1000&lines=👋+Hello,+I'm+Sana+S.+Navas!;🌟+Aspiring+Data+Scientist+and+Developer;🚀+Innovator+in+Web+Dev+and+AI;✨+Learning+Every+Day!" alt="Typing Animation" />
 </p>
 
 ---
 
-### 🌟 About Me
-
-I'm a **MCA student** and an **aspiring Data Scientist & Developer** with a deep passion for technology. I enjoy working on projects in **web development**, **machine learning**, and **data science** that can make a real-world impact. Every day is an opportunity to learn and grow! 🌱
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/78778630/140816542-18096f9b-3a8c-4933-804d-b62c4c3c8e16.gif" alt="Banner" width="80%"/>
+</div>
 
 ---
 
-### 📈 GitHub Stats & Contributions:
+## 💡 About Me:
+I'm a passionate **MCA student**, aspiring to create impactful solutions in **Data Science**, **Machine Learning**, and **Web Development**. My journey involves constant learning, collaboration, and innovation. Let's build the future, one line of code at a time! 💻✨
+
+---
+
+## 📈 GitHub Highlights:
 
 <p align="center">
+  <!-- GitHub Stats -->
   <img src="https://github-readme-stats.vercel.app/api?username=sanasnavas&show_icons=true&theme=radical" alt="GitHub Stats" width="48%" />
   <img src="https://github-readme-streak-stats.herokuapp.com?user=sanasnavas&theme=radical" alt="GitHub Streak" width="48%" />
 </p>
 
 <p align="center">
-  <!-- Contribution Skyline -->
-  <a href="https://skyline.github.com/sanasnavas/2024">
-    <img src="https://github.com/sanasnavas/sanasnavas/blob/main/assets/skyline-preview.png" alt="Contribution Skyline" width="85%" />
-  </a>
-</p>
-
-<p align="center">
-  <!-- GitHub Contribution Graph -->
-  <img src="https://github-contribution-graph-echi.vercel.app/api?username=sanasnavas&bg_color=1a1b27&color=00e6ff&line=00ffb9&point=ffffff&area=true&hide_border=true" alt="GitHub Contribution Graph" width="85%" />
+  <!-- Contribution Graph -->
+  <img src="https://github-contributor-stats.vercel.app/api?username=sanasnavas&theme=radical" alt="Contribution Graph" width="85%" />
 </p>
 
 ---
 
-### 🛠️ Skills & Tech Stack:
+## 🚀 Skills & Tech Stack:
 
 #### 💻 Programming Languages:
 <p>
@@ -60,22 +58,26 @@ I'm a **MCA student** and an **aspiring Data Scientist & Developer** with a deep
 
 ---
 
-### 📚 Featured Projects:
+## 🌟 Featured Projects:
 
 #### 🔬 [Diabetes Prediction Using Machine Learning](#)
-- Predicting diabetes based on patient data using **machine learning models**.  
-  Tools: Python, scikit-learn, pandas, Matplotlib
+- Leveraging **Machine Learning** to predict diabetes based on medical data.
+  - Tools: Python, pandas, scikit-learn, Matplotlib
 
 #### 🌍 [Climate Data Analysis](#)
-- Analyzing climate data to derive actionable insights using **data science techniques**.  
-  Tools: Python, pandas, NumPy, seaborn
+- Exploring and analyzing climate trends using **Data Science techniques**.
+  - Tools: Python, seaborn, pandas, NumPy
+
+#### 🖥️ [Portfolio Website](#)
+- Showcasing my journey and projects through a **React-powered website**.
+  - Tools: React.js, HTML, CSS, JavaScript
 
 ---
 
-### 🌐 Let's Connect:
+## 🌐 Connect with Me:
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/sanasnavas/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-  <a href="https://twitter.com/sanasnavas"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" /></a>
+  <a href="https://linkedin.com/in/sanasnavas"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
   <a href="https://github.com/sanasnavas"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
+  <a href="https://twitter.com/sanasnavas"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" /></a>
 </p>
