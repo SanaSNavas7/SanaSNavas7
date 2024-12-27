@@ -5,7 +5,7 @@
 ---
 
 <p align="center">
-  <img src="https://media.giphy.com/media/8bUWW59w5M4mY/giphy.gif" alt="Space Animation" width="70%"/>
+  <img src="https://raw.githubusercontent.com/sanasnavas/github-readme/main/space_animation.gif" alt="Space Animation" width="70%"/> 
 </p>
 
 ---
