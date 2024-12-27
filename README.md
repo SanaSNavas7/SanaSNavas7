@@ -1,8 +1,12 @@
+<!-- Typing Animation Header -->
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=40&duration=3000&pause=500&color=00FFDD&center=true&vCenter=true&width=1000&lines=Welcome+to+Sana+S.+Navas's+GitHub;Exploring+the+Cosmos+of+Code;Aspiring+Data+Scientist+and+Developer!" alt="Space Typing Animation" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=40&duration=3000&pause=500&color=00FFDD&center=true&vCenter=true&width=1000&lines=Welcome+to+Sana+S.+Navas's+GitHub;Exploring+the+Cosmos+of+Code;Aspiring+Data+Scientist+and+Developer!" alt="Typing Animation" />
 </p>
 
----
+<!-- Animated Space Image -->
+<p align="center">
+  <img src="https://media.giphy.com/media/8bUWW59w5M4mY/giphy.gif" alt="Space Animation" width="70%" />
+</p>
 
 <p align="center">
   <img src="https://media.giphy.com/media/8bUWW59w5M4mY/giphy.gif" alt="Space Animation" width="70%"/>
@@ -81,8 +85,12 @@ Hello! I’m an **MCA student** charting my journey through the vast universe of
 ---
 
 ## 🌌 Stargaze My GitHub Contributions:
+## 🚀 My GitHub Activity
 
-![GitHub Activity Graph](https://github-readme-stats.vercel.app/api?username=sanasnavas&show_icons=true&hide_title=true&count_private=true&hide=prs&theme=radical)
+![GitHub Commit Stats](https://github-readme-stats.vercel.app/api?username=sanasnavas&show_icons=true&hide_title=true&count_private=true&theme=radical)
+
+![GitHub Contribution Graph](https://github.com/sanasnavas/github-contribution-graph/blob/main/graph.svg)
+
 
 
 
