@@ -23,12 +23,6 @@ Hello! I’m an **MCA student** charting my journey through the vast universe of
   <img src="https://github-readme-streak-stats.herokuapp.com?user=sanasnavas&theme=tokyonight" alt="GitHub Streak" width="48%" />
 </p>
 
-<p align="center">
-  <!-- Contribution Graph -->
-  <img src="https://github-readme-activity-graph.cyclic.app/graph?username=sanasnavas&theme=react-dark&hide_border=true&custom_title=🌌+Sana's+Activity+Graph" alt="GitHub Contribution Graph" width="100%" />
-</p>
-
----
 
 ## 🚀 Skills & Tech Stack:
 
@@ -74,13 +68,6 @@ Hello! I’m an **MCA student** charting my journey through the vast universe of
 
 ---
 
-## 🌌 Stargaze My GitHub Contributions:
-
-<p align="center">
-  <img src="https://github-contributor-stats.vercel.app/api?username=sanasnavas&theme=tokyonight" alt="GitHub Contribution Stats" width="85%" />
-</p>
-
----
 
 ## 🌠 Connect with Me:
 
