@@ -1,7 +1,13 @@
 # 👋 Hi, I'm Sana S. Navas!
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=F75C7E&center=true&vCenter=true&width=440&lines=Welcome+to+My+GitHub+Profile!+🌟;Aspiring+Data+Scientist+and+Developer!;Exploring+Tech+Every+Day!+🚀" alt="Typing SVG" />
+  <!-- Typing Animation -->
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=F75C7E&center=true&vCenter=true&width=440&lines=Welcome+to+My+GitHub+Profile!+🌟;Aspiring+Data+Scientist+and+Developer!;Exploring+Tech+Every+Day!+🚀" alt="Typing Animation" />
+</p>
+
+<p align="center">
+  <!-- Animated Commit Graph -->
+  <img src="https://github.com/sanasnavas/sanasnavas/blob/main/assets/commits-animation.gif" alt="Animated Commit Graph" width="80%" />
 </p>
 
 ---
