@@ -30,7 +30,7 @@ Hello! I’m an **MCA student** charting my journey through the vast universe of
 </p>
 
 <p align="center">
-  <!-- Updated Contribution Graph URL -->
+  <!-- Corrected Contribution Graph URL -->
   <img src="https://github-readme-activity-graph.cyclic.app/graph?username=sanasnavas&theme=react-dark&hide_border=true&custom_title=🌌+Sana's+Activity+Graph" alt="GitHub Contribution Graph" width="100%" />
 </p>
 
