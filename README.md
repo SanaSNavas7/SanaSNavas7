@@ -1,14 +1,4 @@
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=40&duration=3000&pause=500&color=00FFDD&center=true&vCenter=true&width=1000&lines=Welcome+to+Sana+S.+Navas's+GitHub;Exploring+the+Cosmos+of+Code;Aspiring+Data+Scientist+and+Developer!" alt="Space Typing Animation" />
-</p>
 
----
-
-<p align="center">
-  <img src="https://media.giphy.com/media/8bUWW59w5M4mY/giphy.gif" alt="Space Animation" width="70%"/>
-</p>
-
----
 
 <div align="center">
   <img src="https://img.shields.io/badge/-Exploring%20New%20Galaxies-blueviolet?style=for-the-badge" alt="Exploration Banner" />
@@ -29,12 +19,6 @@ Hello! I’m an **MCA student** charting my journey through the vast universe of
   <img src="https://github-readme-streak-stats.herokuapp.com?user=sanasnavas&theme=tokyonight" alt="GitHub Streak" width="48%" />
 </p>
 
-<p align="center">
-  <!-- Contribution Graph -->
-  <img src="https://github-readme-activity-graph.cyclic.app/graph?username=sanasnavas&theme=react-dark&hide_border=true&custom_title=🌌+Sana's+Activity+Graph" alt="GitHub Contribution Graph" width="100%" />
-</p>
-
----
 
 ## 🚀 Skills & Tech Stack:
 
@@ -79,12 +63,6 @@ Hello! I’m an **MCA student** charting my journey through the vast universe of
   - Tools: React.js, HTML, CSS, JavaScript
 
 ---
-
-## 🌌 Stargaze My GitHub Contributions:
-
-<p align="center">
-  <img src="https://github-contributor-stats.vercel.app/api?username=sanasnavas&theme=tokyonight" alt="GitHub Contribution Stats" width="85%" />
-</p>
 
 ---
 
