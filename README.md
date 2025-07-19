@@ -1,32 +1,26 @@
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=40&duration=3000&pause=500&color=00FFDD&center=true&vCenter=true&width=1000&lines=Welcome+to+Sana+S.+Navas's+GitHub;Exploring+the+Cosmos+of+Code;Aspiring+Data+Scientist+and+Developer!" alt="Space Typing Animation" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=40&duration=3000&pause=500&color=00FFDD&center=true&vCenter=true&width=1000&lines=Welcome+to+Sana+S.+Navas's+GitHub;Crafting+Intelligent+Solutions+with+Code;Aspiring+Data+Scientist+%7C+Developer+%7C+ML+Explorer" alt="Typing Animation" />
 </p>
 
 ---
 
 <div align="center">
-  <img src="https://img.shields.io/badge/-Exploring%20New%20Galaxies-blueviolet?style=for-the-badge" alt="Exploration Banner" />
+  <img src="https://img.shields.io/badge/-Exploring%20New%20Frontiers-blueviolet?style=for-the-badge" alt="Exploration Banner" />
 </div>
 
 ---
 
-## 🌌 About Me:
+## 🌌 About Me
 
-Hello! I’m an **MCA student** charting my journey through the vast universe of technology. With a passion for **Data Science**, **Machine Learning**, and **Web Development**, I aim to craft solutions that shine like stars. My mantra? **"The sky is not the limit; it's just the beginning!"**
+Hi there! I'm **Sana S. Navas**, an MCA student with a passion for **Data Science**, **Machine Learning**, and **Full-Stack Web Development**. I believe technology should not only solve problems but also empower communities.
+
+> 🧠 *"The sky is not the limit — it's just the beginning!"*
 
 ---
 
-## 🌟 My GitHub Highlights:
+## 🚀 Tech Stack
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=sanasnavas&show_icons=true&theme=tokyonight" alt="GitHub Stats" width="48%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=sanasnavas&theme=tokyonight" alt="GitHub Streak" width="48%" />
-</p>
-
-
-## 🚀 Skills & Tech Stack:
-
-#### 💻 Programming Languages:
+### 💻 Programming Languages
 <p>
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white" />
@@ -34,7 +28,7 @@ Hello! I’m an **MCA student** charting my journey through the vast universe of
   <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white" />
 </p>
 
-#### 🌐 Web Development:
+### 🌐 Web Development
 <p>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
@@ -42,7 +36,7 @@ Hello! I’m an **MCA student** charting my journey through the vast universe of
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
 </p>
 
-#### 📊 Data Science & ML:
+### 📊 Data Science & Machine Learning
 <p>
   <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" />
   <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" />
@@ -52,24 +46,40 @@ Hello! I’m an **MCA student** charting my journey through the vast universe of
 
 ---
 
-## 🌠 Featured Projects:
+## 🌟 Featured Projects
 
-#### 🔮 [Diabetes Prediction Using Machine Learning](#)
-- Leveraging **Machine Learning** to predict diabetes based on medical data.
-  - Tools: Python, pandas, scikit-learn, Matplotlib
+### 🔢 [MNIST Handwritten Digit Classifier](#)
+A neural network built using **TensorFlow** to classify handwritten digits (0–9) from the **MNIST dataset** with high accuracy.
+- **Tech**: Python, Keras, TensorFlow, Matplotlib
+- **Goal**: To explore CNNs for computer vision tasks and digit recognition.
 
-#### 🪐 [Climate Data Analysis](#)
-- Exploring and analyzing climate trends using **Data Science techniques**.
-  - Tools: Python, seaborn, pandas, NumPy
+### 🧠 [MindMate – Mental Health Prediction & Suggestion System](#)
+An intelligent system that predicts mental health concerns based on survey inputs and offers support suggestions.
+- **Tech**: Python, Pandas, Scikit-learn, Logistic Regression, Random Forest
+- **Goal**: Leverage machine learning to support early mental health awareness and proactive care.
 
-#### 🌌 [Portfolio Website](#)
-- Showcasing my journey and projects through a **React-powered website**.
-  - Tools: React.js, HTML, CSS, JavaScript
+### 💉 [Diabetes Prediction Using Machine Learning](#)
+A supervised learning model to predict the risk of diabetes using patient data.
+- **Tech**: Python, Pandas, Scikit-learn
+- **Goal**: Improve healthcare analytics through predictive modeling.
+
+### 🌍 [Climate Data Analysis](#)
+A deep-dive into temperature and climate trends using real-world datasets.
+- **Tech**: Python, NumPy, Seaborn, Pandas
+- **Goal**: Understand climate patterns and visualize impactful insights.
+
+
+
+## 📈 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=sanasnavas&show_icons=true&theme=tokyonight" width="48%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=sanasnavas&theme=tokyonight" width="48%" />
+</p>
 
 ---
 
-
-## 🌠 Connect with Me:
+## 📬 Connect With Me
 
 <p align="center">
   <a href="https://linkedin.com/in/sanasnavas"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
