@@ -65,9 +65,6 @@ AI-based prediction tool offering mental health support suggestions using ML mod
 Digit classification using CNNs trained on the MNIST dataset.
 - **Tech**: Python, TensorFlow, Keras, Matplotlib
 
-### ♻️ [Greenify CET – AI Violation Detection](#)
-A smart campus waste monitoring system that detects disposal violations via CCTV.
-- **Tech**: YOLOv8, OpenPose, Python, MongoDB, OpenCV
 
 ### 💉 [Diabetes Prediction](#)
 Predictive model for diabetes risk using patient datasets.
