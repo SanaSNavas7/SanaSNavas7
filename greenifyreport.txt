@@ -1,0 +1,2074 @@
+\documentclass[12pt, a4paper]{report}
+
+% --- PACKAGES ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{titling}
+\usepackage{tocbibind} % Adds ToC, LoF, LoT, Bib to Table of Contents
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+% --- HYPERREF SETUP ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Greenify Waste Detection and Violation System},
+    pdfpagemode=FullScreen,
+}
+
+% --- LISTINGS (CODE) SETUP ---
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% --- TITLE PAGE ---
+\pretitle{\begin{center}\Huge\bfseries}
+\posttitle{\par\end{center}\vspace{1.5em}}
+\preauthor{\begin{center}\large}
+\postauthor{\par\end{center}}
+\predate{\begin{center}\large}
+\postdate{\par\end{center}}
+
+\title{GREENIFY WASTE DETECTION AND VIOLATION SYSTEM}
+\author{%
+A PROJECT REPORT submitted by: \\
+\vspace{1em}
+\textbf{AI Part (Team 1 & 2)} \\
+(Object Detection, Rule-Based Detection, and Action Detection) \\
+\vspace{1em}
+\textbf{Integration & Deployment (Team 3)} \\
+(Hardware, AI Deployment, Server Connection, NVR/FTP) \\
+\vspace{1em}
+\textbf{Web Team (Team 4)} \\
+(UI/UX, Frontend, Backend, Database, Dashboard) \\
+\vspace{2em}
+to \\
+\vspace{1em}
+\textbf{APJ Abdul Kalam Technological University} \\
+\vspace{1.5em}
+in partial fulfillment of the requirements for the award of the Degree of \\
+\textbf{MCA} \\
+\vspace{1.5em}
+Department of Computer Application \\
+\textbf{College of Engineering Trivandrum} \\
+Thiruvananthapuram 695016
+}
+\date{October 20, 2025}
+
+% --- DOCUMENT START ---
+\begin{document}
+
+\begin{titlepage}
+    \maketitle
+    \vfill
+    \centering
+    \Large
+    \textbf{College of Engineering Trivandrum} \\
+    Thiruvananthapuram \\
+    695016
+\end{titlepage}
+
+% --- CERTIFICATE ---
+\newpage
+\thispagestyle{empty}
+\begin{center}
+    \vspace*{2em}
+    \Large\textbf{CERTIFICATE}
+    \vspace*{4em}
+\end{center}
+
+\large
+\noindent This is to certify that the report entitled \textbf{Greenify Waste Detection and Violation System} submitted by \textbf{Team 1, 2, 3, \& 4} in partial fulfillment of the requirements for the award of the Degree of Master of Computer Applications of the APJ Abdul Kalam Technological University during the year 2024.
+
+\vspace*{8em}
+
+\noindent \parbox{0.4\textwidth}{%
+    \centering
+    (Name) \\
+    \vspace{0.5em}
+    \textbf{Project Guide}
+}
+\hfill
+\parbox{0.4\textwidth}{%
+    \centering
+    (Signature) \\
+    \vspace{0.5em}
+    \textbf{\emph{Signature}}
+}
+
+\vspace*{8em}
+
+\begin{center}
+    \Large
+    \textbf{College of Engineering Trivandrum} \\
+    Thiruvananthapuram \\
+    695016
+\end{center}
+
+% --- ACKNOWLEDGMENT ---
+\newpage
+\chapter*{Acknowledgment}
+\addcontentsline{toc}{chapter}{Acknowledgment}
+
+First and foremost we thank GOD almighty and to our parents for the success of this project.
+
+We owe a sincere gratitude and heart full thanks to everyone who shared their precious time and knowledge for the successful completion of our project.
+
+We are extremely thankful to the Principal, College of Engineering Trivandrum for providing us with the best facilities and atmosphere which was necessary for the successful completion of this project.
+
+We are extremely grateful to the HOD, Dept of Computer Applications, for providing us with the best facilities and atmosphere for the creative work guidance and encouragement.
+
+We express our sincere thanks to our Project Guide, for valuable guidance, support and advice that aided in the successful completion of our project.
+
+We profusely thank the other Asst. Professors in the department and all other staff of CET, for their guidance and inspirations throughout our course of study.
+
+We owe our thanks to our friends and all others who have directly or indirectly helped us in the successful completion of this project.
+
+No words can express our humble gratitude to our beloved parents and relatives who have been guiding us in all walks of our journey.
+
+\vspace{4em}
+\noindent \textbf{Team 1 & 2 (AI Modules)}
+\vspace{1em}
+
+\noindent \textbf{Team 3 (Integration Deployment)}
+\vspace{1em}
+
+\noindent \textbf{Team 4 (Web System)}
+
+% --- ABSTRACT ---
+\newpage
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+This report details the design, implementation, and evaluation of the "Greenify" project, a comprehensive, AI-powered system for automated waste management monitoring. The system integrates multiple components to address improper waste disposal on campus.
+
+The AI module employs a hybrid approach, combining a state-of-the-art deep learning model (YOLOv8) for waste classification with classical computer vision (OpenCV) for bin identification. A second AI module, using a 2D-CNN (ResNet-18) and DeepSORT, performs action detection (e.g., ’throwing’, ’placing’) and persistent user tracking. This allows the system to not only see *what* is disposed, but *how* and *by whom*.
+
+The Integration \& Deployment module acts as the operational backbone, running the AI models on an NVIDIA DGX A100 server. It manages an automated pipeline that ingests video footage (simulated via FTP/NVR) and, upon detecting a violation, sends the results to the web server’s REST API to automatically generate tickets.
+
+The Web System, built with Next.js (PWA) and Django REST Framework, serves as the central hub. It manages all user roles (Students, Admins, Volunteers), provides dashboards for violation management, and includes a full accountability workflow with payment processing (Razorpay) and a gamification system (GreenPoints) to encourage compliance.
+
+This report covers the complete architecture, from hardware setup and AI model training to the backend database design and frontend user interface, demonstrating a full-cycle, integrated solution for automated environmental compliance. The object detection model achieved a successful proof-of-concept with an overall mAP@.50 of 0.795.
+
+% --- TOC, LOF, LOT ---
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+\newpage
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+% --- CHAPTER 1 ---
+\newpage
+\chapter{Introduction \& Problem Statement}
+\label{chap:intro}
+
+\section{Overview}
+Greenify is a smart, AI-powered waste monitoring and accountability platform tailored for college campuses. It aims to automate waste violation detection using existing CCTV infrastructure, encourage responsible waste disposal, and foster a sense of environmental accountability among students and departments.
+
+The core of Greenify is a behavior-changing system. Through automated surveillance, rigorous accountability workflows, and positive reinforcement via gamification, it fosters an environmentally responsible campus culture. It promotes individual responsibility, inter-departmental cooperation, and long-term environmental stewardship.
+
+\section{Problem Statement}
+Waste management on large college campuses is a significant logistical and environmental challenge. Manual monitoring of waste disposal is resource-intensive and inefficient. Improper waste segregation, littering, and overflowing bins not only create an unclean environment but also undermine the institution’s sustainability goals. There is often a lack of accountability, making it difficult to enforce disposal rules effectively. This leads to increased operational costs for cleaning and waste processing, and a missed opportunity to educate and engage the student body in sustainable practices.
+
+Effective waste management is a critical challenge in maintaining environmental hygiene, particularly in densely populated areas such as university campuses. The manual monitoring of waste disposal is labor-intensive, inefficient, and often fails to prevent littering or incorrect segregation of waste.
+
+\section{Objectives}
+The primary objectives of the Greenify platform are as follows:
+\begin{itemize}
+    \item (AI) Locate and classify various types of waste (e.g., plastic, paper, metal) and identify waste segregation infrastructure (color-coded bins) in real-time from video feeds.
+    \item (AI) Classify short-term human actions from video frames ( throwing , placing , walking ) and maintain persistent person identities across frames using DeepSORT.
+    \item (AI) Implement a logic engine to detect violations, including littering (waste not in any bin) and incorrect segregation (waste in the wrong colored bin).
+    \item (Web) Detect and record waste disposal violations by receiving data from the AI system.
+    \item (Web) Notify responsible authorities (department admins and volunteers) and assign cases to identifiable students.
+    \item (Web) Encourage students to follow waste segregation rules through penalties (fines) and rewards (GreenPoints).
+    \item (Web) Promote inter-departmental competition for cleanliness through leaderboards.
+    \item (Web) Enable crowdsourced reporting of violations from students.
+\end{itemize}
+
+\section{Scope of the Project}
+This report details the design, architecture, and implementation of the entire Greenify platform, from the AI models to the web-based user application.
+
+\subsection{Scope of the AI Modules}
+The AI modules serve as the system’s "eyes," tasked with identifying waste items and actions in real-time from video feeds and contextually determining if a disposal action violates established segregation rules. This includes model training, dataset curation, and the rule-based logic engine.
+
+\subsection{Scope of the Integration Deployment Module}
+This module encompasses the operational core, including infrastructure setup on an NVIDIA DGX A100, development of an automated video ingestion (via FTP simulation) and inference pipeline, and integration with the backend web server via a REST API for automated ticket generation.
+
+\subsection{Scope of the Web Platform}
+The web platform serves as the central nervous system for the entire project, managing all data, user interactions, and workflows \emph{after} a violation has been detected by the AI component. The scope includes:
+\begin{itemize}
+    \item \textbf{User Interfaces:} The Progressive Web App (PWA) for students, volunteers, and administrators.
+    \item \textbf{Backend API:} The RESTful API that powers the PWA and communicates with the database.
+    \item \textbf{Authentication \& Authorization:} The complete security model, including user roles and permissions.
+    \item \textbf{Violation Workflow:} The digital logic for routing, assigning, and resolving violations.
+    \item \textbf{Data Management:} The storage and retrieval of users, violations, evidence, and points.
+\end{itemize}
+
+% --- CHAPTER 2 ---
+\chapter{Literature Review}
+\label{chap:lit-review}
+
+The field of automated waste detection has seen significant advancements with the rise of deep learning. Early approaches often relied on traditional computer vision methods involving feature extractors like SIFT and SURF, which were not robust to variations in object appearance, lighting, and occlusion.
+
+Modern systems predominantly use Convolutional Neural Networks (CNNs). Two-stage detectors like \emph{Faster R-CNN} provide high accuracy by first proposing regions of interest (RPN) and then classifying them, but often at the cost of real-time performance. In contrast, single-stage detectors like \emph{SSD (Single Shot MultiBox Detector)} and the \emph{YOLO (You Only Look Once)} family of models prioritize speed by performing localization and classification in a single forward pass, making them ideal for real-time applications.
+
+Several projects have utilized these models for waste detection. For instance, the original \emph{TACO (Trash Annotations in Context)} dataset was introduced to spur research in this area. Many existing systems focus solely on detecting litter in outdoor environments or classifying images containing a single type of waste. However, few systems integrate this detection with a real-time, rule-based engine to check for segregation violations against a set of color-coded bins, which is the primary contribution of our work.
+
+Our "Greenify" project builds upon this foundation by selecting the state-of-the-art YOLOv8 model for its superior balance of speed and accuracy and combining it with a classical computer vision pipeline for a complete, context-aware violation detection system.
+
+% --- CHAPTER 3 ---
+%-------------------------------------------------------------------
+\chapter{System Architecture}
+
+\section{High-Level System Architecture}
+The Greenify system is built on a modern, decoupled architecture. The \textbf{AI Inference Server} (running on an NVIDIA DGX) ingests video, performs detection, and sends violation data to the \textbf{Web Server} (running Django). The Web Server manages the database and exposes a REST API consumed by the \textbf{Frontend PWA} (running Next.js), which is delivered to end-users (Admins, Students).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{architecture.png}
+    \caption{High-Level System Architecture, showing data flow from Cameras to the AI Inference Server, Web Server, and finally the Dashboard.}
+    \label{fig:system_arch}
+\end{figure}
+
+\section{Data Flow Diagram (DFD) - Level 0}
+The DFD Level 0 (Context Diagram) shows the entire Greenify system as a single process. It illustrates the high-level data flows between the system and its external entities.
+\begin{itemize}
+    \item \textbf{External Entities:} \texttt{CCTV CAMERA}, \texttt{STUDENTS}, \texttt{ADMINS / VOLUNTEERS}, \texttt{Payment Gateway}.
+    \item \textbf{Data Flows:}
+        \begin{itemize}
+            \item \textit{CCTV CAMERA} $\rightarrow$ \textit{GREENIFY}: MOTION DETECTED VISUALS (VIDEO CLIPS)
+            \item \textit{STUDENTS} $\rightarrow$ \textit{GREENIFY}: Payment
+            \item \textit{GREENIFY} $\rightarrow$ \textit{STUDENTS}: Receive assigned cases
+            \item \textit{ADMINS / VOLUNTEERS} $\rightarrow$ \textit{GREENIFY}: ASSINGMENT
+            \item \textit{GREENIFY} $\rightarrow$ \textit{ADMINS / VOLUNTEERS}: (IMAGES) VIOLATIONS
+            \item \textit{Payment Gateway} $\rightarrow$ \textit{GREENIFY}: Sends payment confirmations
+            \item \textit{GREENIFY} $\rightarrow$ \textit{Payment Gateway}: transaction requests
+        \end{itemize}
+\end{itemize}
+
+\begin{figure}[p] % [p] suggests placing this on a separate "page of floats"
+    \centering
+    \includegraphics[width=\textwidth, keepaspectratio]{dfd0.png}
+    \caption{DFD Level 0 - Context Diagram (From Web Team)}
+    \label{fig:dfd-0}
+\end{figure}
+
+\clearpage % Force a new page after the float
+
+\section{Data Flow Diagram (DFD) - Level 1}
+The DFD Level 1 provides a more detailed breakdown of the main "Greenify System" process. It reveals the primary sub-processes and data stores within the web platform, which handles the logic after ingestion.
+
+\textbf{Main Processes:}
+\begin{enumerate}
+    \item \textbf{Manage Authentication:} Handles user login, registration, and session management.
+    \item \textbf{Ingest \& Route Violation:} Receives evidence from the AI system (Process 2 in DFD), creates a violation record, and routes it to the correct queues.
+    \item \textbf{Manage Violation Lifecycle:} The workflow engine for admins/volunteers to review, assign, and resolve cases.
+    \item \textbf{Process Crowdsourced Reports:} Handles reports submitted by students.
+    \item \textbf{Manage Gamification:} Calculates and updates GreenPoints.
+    \item \textbf{Handle User Actions:} Allows students to view/pay fines and admins to manage users.
+    \item \textbf{Process Payments:} Interfaces with the external payment gateway.
+\end{enumerate}
+
+\textbf{Data Stores:}
+\begin{itemize}
+    \item \texttt{DS1: Users}
+    \item \texttt{DS2: Violations}
+    \item \texttt{DS3: Reports}
+    \item \texttt{DS4: point\_transactions} (was GreenPoints)
+    \item \texttt{DS5: Payments}
+\end{itemize}
+
+\begin{figure}[p] % [p] suggests placing this on a separate "page of floats"
+    \centering
+    \includegraphics[width=\textwidth, keepaspectratio]{dfdlv1.png}
+    \caption{DFD Level 1 - Main Processes}
+    \label{fig:dfd-1}
+\end{figure}
+
+\clearpage % Force a new page after the float
+
+%
+% --- CHAPTER 4 ---
+\chapter{AI Modules}
+\label{chap:ai-modules}
+
+\section{Object and Rule-Based Detection Module}
+The Greenify Waste Detection and Violation System employs a hybrid-AI architecture that integrates both local and cloud-based models to achieve robust waste and bin detection under real-world conditions. This chapter details the components, datasets, training pipeline, and performance metrics of the object detection module, which forms the core of the violation analysis system.
+
+\subsection{System Architecture}
+The system follows a three-stage processing pipeline for each analyzed video frame:
+\begin{enumerate}
+    \item \textbf{Waste Detection (Local YOLOv8 Model)}: The input frame is processed using a fine-tuned YOLOv8m model (\texttt{best\_evaluated\_model.pt}). The model outputs bounding boxes, class labels (e.g., plastic, paper, metal), and confidence scores for all detected waste objects.
+    \item \textbf{Bin Detection (Cloud-Deployed AI Model)}: The earlier OpenCV-based color thresholding approach was deprecated due to high sensitivity to lighting and noise. It has been replaced with a two-part AI-driven detection system:
+    \begin{itemize}
+        \item (a) \textbf{AI Bin Localization:} A cloud-deployed model, trained and hosted on Roboflow (\texttt{trashbinj2w5l-tcmqa/3}), identifies the position of trash bins using the \texttt{inference-sdk} API. This model, trained on 945 labeled images, ensures reliable detection even under complex scenes.
+        \item (b) \textbf{Targeted Color Extraction:} For each detected bin, a function (\texttt{get\_dominant\_color}) isolates the Region of Interest (ROI) and applies an HSV-based analysis to determine the bin’s dominant color (e.g., red, green), enabling correct mapping to waste types.
+    \end{itemize}
+    \item \textbf{Rule-Based Violation Analysis}: The outputs from the YOLO and Roboflow models are fused. Using the Intersection over Union (IoU) metric, the system determines whether a waste item overlaps with a bin. Based on predefined rules (e.g., plastic $\to$ red bin), the system classifies actions as:
+    \begin{itemize}
+        \item OK: Correct disposal
+        \item Wrong Bin Violation: Waste placed in the incorrect color bin
+        \item Littering Violation: Waste not inside any detected bin
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Dataset Curation and Preparation}
+Robust model performance depends on dataset diversity and balance. The Greenify waste model dataset was constructed through the integration and augmentation of multiple publicly available datasets:
+\begin{itemize}
+    \item \textbf{TACO YOLO Dataset:} Served as the foundation, providing diverse, annotated samples of waste in real-world contexts.
+    \item \textbf{Kaggle Garbage Classification Dataset \& WasteNet:} Supplemented the dataset by increasing representation for key waste types such as paper and plastic, thereby addressing class imbalance and improving classification accuracy.
+\end{itemize}
+(Note: The bin detection model was trained separately on a 945-image dataset using the Roboflow platform.)
+
+\subsection{Data Augmentation Strategy}
+To enhance model generalization and reduce overfitting, a comprehensive augmentation pipeline was employed during training (\texttt{train.py}):
+\begin{itemize}
+    \item \textbf{Geometric Augmentations:} Random horizontal and vertical flips (\texttt{fliplr}, \texttt{flipud}) to ensure orientation invariance.
+    \item \textbf{Photometric Augmentations:} HSV color shifts (\texttt{hsvh}, \texttt{hsvs}, \texttt{hsvv}) for hue, saturation, and brightness variation.
+    \item \textbf{Advanced Augmentations:}
+    \begin{itemize}
+        \item \textbf{Mosaic:} Combines four images to teach contextual recognition; disabled during final 10 epochs for fine-tuning on complete images.
+        \item \textbf{MixUp \& CutMix:} Blends images and labels to improve generalization and boundary learning.
+        \item \textbf{Random Erasing:} Simulates occlusions by removing random regions of the image.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Model Selection and Training}
+The YOLOv8m architecture was selected for its optimal trade-off between accuracy and speed, making it suitable for real-time campus deployment. The model was trained for 80 epochs using the AdamW optimizer. Key parameters include:
+\begin{itemize}
+    \item \textbf{Mixed Precision Training:} \texttt{half=True} for FP16 inference, reducing memory use and improving training speed.
+    \item \textbf{Image Size:} \texttt{imgsz=640}, balancing detail and performance.
+    \item \textbf{Batch Size:} \texttt{batch=64}, leveraging multi-GPU support for stable learning dynamics.
+\end{itemize}
+
+\subsection{Key Algorithms and Evaluation Metrics}
+\subsubsection{Intersection over Union (IoU)}
+The IoU metric determines spatial overlap between detected waste and bins:
+\begin{equation}
+    IoU(BoxA,BoxB)=\frac{Area(BoxA \cap BoxB)}{Area(BoxA \cup BoxB)}
+    \label{eq:iou}
+\end{equation}
+An $IoU \geq 0.1$ signifies that a waste item lies inside a bin, triggering rule-based classification.
+
+\subsubsection{Model Performance Metrics}
+The Greenify system evaluates its waste model using standard detection metrics:
+\begin{itemize}
+    \item \textbf{Precision} — Measures prediction accuracy.
+    \begin{equation}
+        Precision=\frac{TP}{TP+FP}
+        \label{eq:precision}
+    \end{equation}
+    \item \textbf{Recall} — Measures completeness of detection.
+    \begin{equation}
+        Recall=\frac{TP}{TP+FN}
+        \label{eq:recall}
+    \end{equation}
+    \item \textbf{Mean Average Precision (mAP)} — Comprehensive accuracy metric.
+    \begin{itemize}
+        \item \textbf{mAP@.50:} Mean of Average Precision values at IoU = 0.5.
+        \item \textbf{mAP@.50-.95:} Averaged across IoU thresholds from 0.5 to 0.95 for stricter evaluation.
+    \end{itemize}
+\end{itemize}
+The final trained YOLOv8 model achieved $\text{mAP@0.50} = 0.795$, indicating strong overall detection performance.
+
+\subsection*{Algorithm: Intersection over Union (IoU) Calculation}
+
+The IoU algorithm quantifies the spatial overlap between two bounding boxes, $\text{Box}_1$ and $\text{Box}_2$.
+
+\textbf{Input:} Two bounding boxes, 
+\[
+\text{Box}_1 = (x_{1a}, y_{1a}, x_{2a}, y_{2a}), \quad
+\text{Box}_2 = (x_{1b}, y_{1b}, x_{2b}, y_{2b}),
+\]
+defined by their top-left and bottom-right coordinates.
+
+\textbf{Output:} IoU score, $\text{IoU} \in [0,1]$.
+
+\textbf{Procedure:}
+\begin{enumerate}
+    \item \textbf{Determine Intersection Coordinates:} Calculate the coordinates of the overlapping region by taking
+    \[
+    x_{\text{inter\_min}} = \max(x_{1a}, x_{1b}), \quad 
+    y_{\text{inter\_min}} = \max(y_{1a}, y_{1b}),
+    \]
+    \[
+    x_{\text{inter\_max}} = \min(x_{2a}, x_{2b}), \quad 
+    y_{\text{inter\_max}} = \min(y_{2a}, y_{2b}).
+    \]
+    
+    \item \textbf{Calculate Intersection Area:} 
+    \[
+    \text{Area}_{\text{inter}} = \max(0, x_{\text{inter\_max}} - x_{\text{inter\_min}}) \times \max(0, y_{\text{inter\_max}} - y_{\text{inter\_min}}).
+    \]
+    
+    \item \textbf{Calculate Union Area:} 
+    \[
+    \text{Area}_{\text{union}} = \text{Area}_{\text{Box}_1} + \text{Area}_{\text{Box}_2} - \text{Area}_{\text{inter}}.
+    \]
+    
+    \item \textbf{Compute IoU Score:} 
+    \[
+    \text{IoU} = 
+    \begin{cases} 
+    \frac{\text{Area}_{\text{inter}}}{\text{Area}_{\text{union}}}, & \text{if } \text{Area}_{\text{union}} \neq 0 \\[2mm]
+    0, & \text{if } \text{Area}_{\text{union}} = 0
+    \end{cases}
+    \]
+\end{enumerate}
+
+\subsection*{Algorithm: YOLOv8 General Object Detection}
+
+This algorithm outlines the standard inference steps for the YOLOv8 object detection model.
+
+\textbf{Input:} Image or video frame.
+
+\textbf{Output:} Detected objects with bounding boxes, class labels, and confidence scores.
+
+\textbf{Procedure:}
+\begin{enumerate}
+    \item \textbf{Load and Preprocess:} Load the trained YOLOv8 model weights and prepare the input image by resizing (e.g., $640 \times 640$) and normalizing pixel values.
+    
+    \item \textbf{Feature Extraction and Fusion:} Pass the preprocessed image through the CSPDarknet backbone to extract features. These features are combined using a PAN-FPN neck to ensure robust multi-scale object detection.
+    
+    \item \textbf{Detection Head Prediction:} The model head predicts bounding box coordinates $(x, y, w, h)$, objectness scores, and class probabilities for each potential object.
+    
+    \item \textbf{Post-processing (NMS):} Apply Non-Maximum Suppression (NMS) to remove redundant overlapping boxes, keeping only the highest-confidence prediction per object.
+    
+    \item \textbf{Output and Logging:} Return the filtered detections (boxes, labels, scores) for visualization or logging in a database for further analysis.
+\end{enumerate}
+
+\subsection{Implementation Details}
+The system is composed of modular Python scripts, ensuring scalability and ease of maintenance. All core scripts are documented in the Appendix.
+\begin{itemize}
+    \item \texttt{train.py} — Handles dataset loading, augmentation, and YOLO fine-tuning using \texttt{yolov8m.pt} pretrained weights.
+    \item \texttt{evaluate.py} — Evaluates the trained model (\texttt{best.pt}), computing metrics including mAP, precision, and recall.
+    \item \texttt{rulebased.py} — Integrates YOLO and Roboflow models. Implements the three-stage process (waste detection, bin localization, and rule-based analysis), logs results to \texttt{violation\_log.csv}, and saves annotated evidence images.
+    \item \texttt{testimage.py} — Performs batch inference on image directories, exporting annotated images and detection logs for analysis.
+\end{itemize}
+
+\section{Action Detection Module}
+This module identifies actions performed by individuals in CCTV footage (such as throwing, placing, etc.) and tracks them persistently. It uses a 2D CNN (ResNet-18) for frame-level classification. DeepSORT is employed for persistent identity.
+
+\subsection{Proposed System}
+The action detection pipeline consists of:
+\begin{itemize}
+    \item \textbf{Video \& Frame Extraction:} Input videos are split into frames. YOLO detections locate regions containing people, bins, and waste.
+    \item \textbf{Tracking:} DeepSORT tracks each detected person, assigning persistent IDs.
+    \item \textbf{Frame-level Classification:} Each cropped person frame is fed into ResNet-18, a 2D-CNN, which classifies the action for that frame.
+    \item \textbf{Violation Logic:} If the action is \emph{throwing} or \emph{placing}, waste location is checked against bin bounding boxes. Correct disposal, wrong bin, or littering is determined.
+    \item \textbf{Evidence and Logging:} Violations trigger saving of annotated frames/clips and structured logs containing person ID, timestamp, action, bin info, and violation type.
+\end{itemize}
+Pipeline diagram placeholder: YOLO $\to$ ResNet-18 $\to$ DeepSORT $\to$ Violation logic.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{action_pipe.jpeg}
+    \caption{High-level action detection pipeline.}
+    \label{fig:action-pipeline}
+\end{figure}
+
+\subsection{Action Recognition Model (ResNet-18)}
+\begin{itemize}
+    \item \textbf{ResNet-18 Architecture:} ResNet-18 is a 2D-CNN used for frame-level action classification. It consists of convolutional layers with residual connections, enabling effective feature extraction without vanishing gradients. Each frame is processed independently to classify actions like \emph{throwing}, \emph{placing}, or \emph{walking}.
+    \item \textbf{Input preprocessing:} Frames are resized to 224x224 and normalized. Person bounding boxes from YOLO are used to crop the image, isolating the individual for action analysis. The pre-trained weights are adapted by replacing the final fully connected layer. The full model setup is detailed in Appendix (Listing A.6).
+    \item \textbf{Output:} The final fully connected layer produces probabilities for each action class.
+\end{itemize}
+
+\subsection{Tracking with DeepSORT}
+DeepSORT associates each detected person with a persistent ID using appearance embeddings and motion prediction. Frame-level action predictions are linked to the corresponding person ID to maintain continuity across the video. The conversion of YOLO bounding box output is required.
+
+\subsection{Violation Logic}
+(Bin details omitted in source)
+
+\subsection{Dataset}
+The **Kinetics** dataset was used for training the ResNet-18 action classifier, specifically utilizing short-term actions: \emph{throwing, placing, walking, and idle}. Preprocessing included resizing, normalization.
+\clearpage % This forces a new page
+\subsection{Implementation Screenshots}
+Placeholders for module outputs:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{action.jpeg}
+    \caption{Action detection screenshots.}
+    \label{fig:action-screenshot}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{tracking.jpeg}
+    \caption{ DeepSORT tracking screenshots.}
+    \label{fig:deepsort-screenshot}
+\end{figure}
+
+\subsection{Implementation Overview}
+The module is structured into the following key Python scripts, ensuring modularity and clear separation of concerns. The full source code for the key components is detailed in the Appendix.
+\begin{itemize}
+    \item \texttt{dataset.py}: Defines the \texttt{VideoFramesDataset} class for loading image frames from the hierarchical directory structure of the Kinetics dataset (see Appendix: Listing A.5).
+    \item \texttt{actionnet.py}: Contains the logic for loading the pre-trained ResNet-18 model and modifying its final layer (see Appendix: Listing A.6).
+    \item \texttt{tracker\_utils.py}: Implements utility functions for the DeepSORT pipeline, including \texttt{yolo\_to\_deepsort} (see Appendix: Listing A.7).
+    \item \texttt{violation\_engine.py}: Houses the core logic for the violation analysis and rule-based classification (\emph{Correct Disposal}, \emph{Wrong Bin}, \emph{Littering}).
+    \item \texttt{run\_pipeline.py}: The main application script that orchestrates the entire process (see Appendix: Listing A.8).
+\end{itemize}
+\section{Greenify Action Detection Module}
+
+The Greenify Action Detection Module integrates three core algorithms to track individuals, classify their actions, and determine waste disposal compliance.
+
+\subsection{Algorithm 1: Frame-level Action Classification (ResNet-18)}
+
+This module uses a 2D Convolutional Neural Network (CNN), \textit{ResNet-18}, to classify short-term actions from cropped images of detected people. Since it operates on individual frames, the temporal context is implicitly learned from the visual cues of the action at that instant (e.g., arm position).
+
+\textbf{Input:} Preprocessed, cropped image of a person (Bounding Box $B_{\text{person}}$ derived from YOLO detection).\\
+\textbf{Output:} Action Label (\textit{throwing}, \textit{placing}, \textit{walking}, \textit{idle}) and class confidence score.
+
+\subsubsection*{Process Steps}
+
+\begin{enumerate}
+    \item \textbf{Input Preparation:} Resize the cropped frame $B_{\text{person}}$ to $224 \times 224$ pixels and normalize using ImageNet mean and standard deviation.
+    \item \textbf{Feature Extraction:} Pass the image through the \textit{ResNet-18} backbone with residual blocks and skip connections to extract robust features.
+    \item \textbf{Classification Layer:} Global average pooling reduces the feature maps; the resulting vector is passed to a modified fully connected (FC) layer configured for the custom action classes.
+    \item \textbf{SoftMax Output:} Convert the FC output scores into probabilities for each action class using the SoftMax function.
+    \item \textbf{Final Label:} Select the class with the highest probability as the definitive action label for that person in the current frame.
+\end{enumerate}
+
+\subsection{Algorithm 2: Persistent Identity Tracking (DeepSORT)}
+
+\textit{DeepSORT (Deep Simple Online and Realtime Tracking)} maintains a consistent identity (Track ID) for each person across the video stream, enabling actions to be associated with specific individuals over time.
+
+\textbf{Input:} YOLO Person Detections (Bounding Box coordinates $[x_1, y_1, x_2, y_2]$ and confidence score).\\
+\textbf{Output:} Persistent Track ID (TID) and refined bounding box coordinates for each tracked person.
+
+\subsubsection*{Process Steps}
+
+\begin{enumerate}
+    \item \textbf{Format Conversion:} Convert YOLO bounding boxes to DeepSORT format: $[x_{\text{center}}, y_{\text{center}}, \text{width}, \text{height}]$.
+    \item \textbf{Motion Prediction (Kalman Filter):} Predict the current frame position for existing tracks using previous movement.
+    \item \textbf{Appearance Embedding:} Pass the cropped person image through a pre-trained Re-ID CNN to generate a feature embedding.
+    \item \textbf{Data Association:} Compute a cost matrix using:
+    \begin{itemize}
+        \item \textbf{Mahalanobis Distance:} Measures spatial deviation between predicted and detected boxes.
+        \item \textbf{Cosine Distance:} Measures similarity of appearance embeddings to ensure visual consistency.
+    \end{itemize}
+    \item \textbf{Assignment:} Solve the assignment problem using the Hungarian algorithm; unmatched detections initialize new Track IDs.
+\end{enumerate}
+
+\subsection{Algorithm 3: Violation Logic Engine}
+
+This rule-based system combines YOLO Object Detection (bin/waste), ResNet-18 (action), and DeepSORT (person ID) to classify disposal events.
+
+\textbf{Input:} Action Label, Person TID, Waste Bounding Box $B_w$, and Labeled Bin Bounding Boxes $B_{\text{bin}}$ (with color/type).\\
+\textbf{Output:} Violation Type (\textbf{Correct Disposal}, \textbf{Wrong Bin}, \textbf{Littering}) and evidence trigger.
+
+\subsubsection*{Process Steps}
+
+\begin{enumerate}
+    \item \textbf{Action Filter:} Proceed only if the action for the person's TID is \textit{throwing} or \textit{placing}.
+    \item \textbf{Waste Location Check:} Verify the position of $B_w$ relative to all detected bins $B_{\text{bin}}$.
+    \begin{itemize}
+        \item \textbf{Containment Test:} Check if the centroid of $B_w$ is within any bin or use IoU threshold $\tau_{\text{iou}} = 0.1$.
+    \end{itemize}
+    \item \textbf{Violation Classification:}
+    \begin{itemize}
+        \item \textbf{Littering:} If $B_w$ does not overlap with any bin.
+        \item \textbf{Bin Match Check:} If $B_w$ overlaps with a bin, compare the bin color/type with the expected waste type.
+        \begin{itemize}
+            \item \textbf{Correct Disposal:} Bin matches expected type.
+            \item \textbf{Wrong Bin:} Bin mismatches expected type.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Logging and Evidence:} If classified as \textit{Wrong Bin} or \textit{Littering}, save annotated frames/clips and record logs with Person TID, Timestamp, Action, and Violation Type.
+\end{enumerate}
+
+
+% --- CHAPTER 5 ---
+\chapter{Integration \& Deployment}
+\label{chap:integration}
+
+\section{Module Overview}
+The AI Deployment and Integration Module serves as the operational core of the Greenify system, translating the theoretical capabilities of the trained AI model into a functional, automated production system. It provides the critical link between raw camera footage and the actionable violation reports displayed on the administrative dashboard.
+This module’s responsibility begins where the model training ends. It encompasses three primary areas:
+\begin{itemize}
+    \item \textbf{Infrastructure Setup:} Configuring the hardware and software environment necessary for continuous, high-performance AI inference.
+    \item \textbf{Automation Pipeline:} Developing the end-to-end workflow that automatically ingests video data, processes it through the AI model, and logs detections.
+    \item \textbf{Backend Integration:} Transmitting the results of the AI inference (i.e., detected violations) to the web server’s API to automatically generate tickets.
+\end{itemize}
+
+\section{Infrastructure Setup and Environment}
+A robust and reproducible environment is essential for deploying the AI model. This was achieved by containerizing the software stack and leveraging high-performance GPU hardware.
+
+\subsection{Hardware Configuration}
+The system was deployed on an \textbf{NVIDIA DGX A100} server (part of a shared academic HPC cluster), chosen for its capability to handle multiple, parallel video streams for inference. The massive GPU memory (8x 80GB) and computational power are ideal for the demanding nature of object detection. While this represents an ideal development and high-load scenario, this architecture allows for future scaling down to edge devices like the \textbf{NVIDIA Jetson Nano} for cost-effective, per-camera deployment.
+
+\subsection{Software Stack and Containerization}
+To ensure a consistent and isolated environment, the entire AI module was deployed within a \textbf{Docker container}. This approach encapsulates all dependencies, making the system portable and scalable. The container was built using the official NVIDIA PyTorch image (\texttt{nvcr.io/nvidia/pytorch:24.01-py3}), which comes pre-configured with the necessary CUDA and cuDNN drivers. The complete Docker execution command used to launch the environment is shown in Appendix (Listing B.1).
+
+Key libraries and their purposes are summarized in Table \ref{tab:software-stack}.
+
+\begin{table}[H]
+    \centering
+    \caption{Software Stack for AI Deployment Module}
+    \label{tab:software-stack}
+    \begin{tabular}{@{}lll@{}}
+        \toprule
+        \textbf{Component} & \textbf{Specification} & \textbf{Purpose} \\ \midrule
+        Hardware & NVIDIA DGX A100 (8x 80GB) & Parallel AI inference on multiple streams \\
+        OS (Base) & Ubuntu 22.04 LTS & Host and container base environment \\
+        Container & Docker (NVIDIA PyTorch:24.01-py3) & Reproducible, isolated environment \\
+        AI Libraries & PyTorch, Ultralytics (YOLOv8) & Core model inference \\
+        Video/Image & OpenCV, FFmpeg & Video preprocessing, frame sampling \\
+        Integration & Python Requests & HTTP communication with web backend API \\
+        Automation & Cron, subprocess & Scheduling and orchestrating the pipeline \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Video Ingestion Pipeline (FTP Simulation)}
+For this Minimum Viable Product (MVP), direct access to live camera RTSP feeds was not available. To simulate a real-world scenario, a \textbf{File Transfer Protocol (FTP) server} was used to mimic the functionality of a real-world \textbf{CCTV Network Video Recorder (NVR)} that exposes recorded footage via an FTP directory.
+
+\subsection{Workflow}
+The pipeline operates as follows:
+\begin{enumerate}
+    \item Test video footage is uploaded to a specific directory (\texttt{/files}) on the FTP server (\texttt{192.168.7.114}), simulating an NVR saving recordings.
+    \item A scheduled script (\texttt{ftpconnect.py}) on the AI server runs periodically to check this directory for new files.
+    \item Any new video files are downloaded to a local directory (\texttt{./downloads}) on the AI server.
+    \item Once downloaded, the script triggers the main \texttt{detection.py} script to begin processing.
+\end{enumerate}
+This FTP-based polling approach effectively decouples the video source from the processing engine, an architecture that can be easily adapted to consume live streams or batch processing in the future.
+
+\subsection{Implementation (\texttt{ftpconnect.py})}
+The connection and download logic was implemented in Python using the \texttt{ftplib} library. The script handles connection, authentication, and file retrieval. Crucially, at the end of its execution, it uses the \texttt{subprocess} module to automatically launch the detection script, creating a seamless pipeline. The full implementation is shown in Appendix (Listing B.2).
+
+\section{AI Inference Pipeline (YOLO Integration)}
+Once video files are downloaded, the \texttt{detection.py} script is executed. This script is responsible for loading the trained YOLOv8 model, processing the video frame by frame, and identifying violations.
+
+\subsection{Frame Sampling Strategy}
+Processing every single frame of a high-FPS video is computationally expensive and redundant. To optimize performance, a \textbf{frame sampling strategy} was implemented. The script targets an inference rate of \textbf{4 FPS}. It reads the video’s original FPS and calculates a \texttt{frame\_skip\_interval} to only process every N-th frame, significantly reducing the computational load while still capturing most disposal events.
+
+\subsection{Detection and Logging}
+For each sampled frame, the following occurs:
+\begin{itemize}
+    \item The frame is passed to the loaded YOLOv8 model (\texttt{best\_evaluated\_model.pt}).
+    \item The model returns detections for all known classes (e.g., ’PLASTIC’, ’PAPER’, ’BIN’).
+    \item Detections are filtered by a confidence threshold to ensure reliability.
+    \item The script logs all detections to a detailed \texttt{detections.csv} and a frame-wise \texttt{detections\_summary.csv} for auditing and analysis.
+    \item An annotated output video is generated with bounding boxes drawn on the processed frames.
+\end{itemize}
+Key inference parameters are detailed in Table \ref{tab:inference-params}.
+
+\begin{table}[H]
+    \centering
+    \caption{Inference Pipeline Parameters}
+    \label{tab:inference-params}
+    \begin{tabular}{@{}lll@{}}
+        \toprule
+        \textbf{Parameter} & \textbf{Value} & \textbf{Purpose} \\ \midrule
+        Target FPS & 4 & Performance optimization by skipping frames \\
+        Model & \texttt{best\_evaluated\_model.pt} & The fine-tuned YOLOv8 model \\
+        Confidence Threshold & 0.5 (Implied) & Filter out low-confidence detections \\
+        Output Format & CSV logs + MP4 video & Audit trail and visual verification \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+An example of a detected violation from the output video is shown in Figure \ref{fig:plastic-detection}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{fig5_1.png}
+    \caption{Example of a detected ’PLASTIC’ violation from the inference pipeline.}
+    \label{fig:plastic-detection}
+\end{figure}
+
+\section{Automated Ticket Generation (API Integration)}
+The final and most critical step of the integration is to communicate a detected violation to the web backend to create an actionable ticket for administrators. This is achieved via an \textbf{HTTP POST request} to the backend’s REST API.
+
+\subsection{Trigger Logic}
+Inside the \texttt{detection.py} script, after processing a frame, the code checks if a ’PLASTIC’ violation (or other target class) was detected. If a violation is found, the \texttt{send\_violation\_ticket()} function is called. This function constructs a JSON payload containing the \texttt{location\_id}, \texttt{ticket\_type}, and a URL to the image evidence. It then sends this payload to the \texttt{/api/violations/tickets/create/} endpoint on the web server. This action directly creates a new entry in the web application’s database, which immediately appears on the admin dashboard for review.
+
+\subsection{Implementation (\texttt{detection.py})}
+The core logic for detection and API integration is contained within \texttt{detection.py}. See Appendix (Listing B.3) for the full script, including the helper function for sending API requests using the \texttt{requests} library.
+
+\section{Automation and Scheduling}
+To make the system run continuously without manual intervention, the entire pipeline was automated using a \textbf{cron job} on the AI server’s host operating system. A cron job was configured to execute the \texttt{ftpconnect.py} script every 10 minutes. This script, in turn, downloads new files and then triggers the \texttt{detection.py} script. All output from the script is redirected to a log file (\texttt{/var/log/greenify.log}) for debugging and monitoring. The cron entry is shown in Appendix (Listing B.4).
+
+\section{Contribution Summary}
+As the lead for AI Deployment and Integration, the contributions to the Greenify project were focused on building the operational pipeline that connects all other components. Specific responsibilities included:
+\begin{itemize}
+    \item \textbf{Infrastructure and Environment:} Configured the Docker container, managed dependencies (PyTorch, OpenCV, etc.), and set up the \texttt{nvidia-docker} runtime on the DGX server.
+    \item \textbf{Data Ingestion Pipeline:} Developed the \texttt{ftpconnect.py} script to simulate NVR functionality by automatically downloading videos from the FTP server.
+    \item \textbf{AI Inference Integration:} Wrote the \texttt{detection.py} script to load the trained YOLOv8 model, implement frame-sampling for performance, and process video files.
+    \item \textbf{Backend API Integration:} Implemented the \texttt{send\_violation\_ticket} function to construct and send JSON payloads to the web server’s REST API upon detecting a violation.
+    \item \textbf{Automation and Orchestration:} Used \texttt{subprocess} to chain the scripts together and deployed the end-to-end pipeline on a cron schedule for continuous, automated operation.
+    \item \textbf{Testing and Documentation:} Performed integration testing to ensure the data flowed correctly from the FTP server to a ticket appearing on the web dashboard.
+\end{itemize}
+A screenshot of a ticket automatically generated in the web dashboard as a result of this pipeline is shown in Figure \ref{fig:dashboard-ticket}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure_5_2.png}
+    \caption{Example of a ticket generated in the web dashboard, triggered by the AI integration pipeline.}
+    \label{fig:dashboard-ticket}
+\end{figure}
+
+
+% --- CHAPTER 6 ---
+\chapter{Web System}
+\label{chap:web-system}
+
+\section{Web System Architecture}
+The Greenify web platform is built on a modern, decoupled (or "headless") architecture. The frontend (client-side) is a Progressive Web App (PWA) that communicates with a powerful backend (server-side) via a RESTful API. This separation of concerns allows for independent development, scaling, and maintenance of the user interface and the core business logic.
+
+\section{Frontend Architecture}
+The frontend is the primary interaction point for all users (Students, Admins, Volunteers). We chose a technology stack focused on performance, user experience, and modern web standards.
+
+\subsection{Progressive Web App (PWA)}
+Greenify is developed as a PWA to bridge the gap between a traditional website and a native mobile application. This approach provides key benefits:
+\begin{itemize}
+    \item \textbf{Installable:} Users can "add to home screen" for an app-like experience without an app store.
+    \item \textbf{Offline Capability:} Using service workers, the app can cache key assets and data, allowing users to access a basic version of the dashboard even with intermittent connectivity.
+    \item \textbf{Push Notifications:} This is a critical feature for our workflow, enabling instant alerts to students about new violations or to volunteers about cases needing review.
+\end{itemize}
+
+\subsection{Next.js}
+Next.js, a React framework, was chosen as the foundation for our frontend. It provides a robust set of features out-of-the-box that are critical for Greenify:
+\begin{itemize}
+    \item \textbf{Page-Based Routing:} Simplifies the creation of different sections (e.g., \texttt{/dashboard}, \texttt{/violations/[id]}).
+    \item \textbf{Performance:} Next.js offers hybrid rendering. We use Server-Side Rendering (SSR) for dynamic, user-specific pages like the dashboard and Static Site Generation (SSG) for public-facing pages like the landing page.
+    \item \textbf{API Routes:} Allows us to build lightweight "proxy" endpoints within the Next.js app itself, simplifying some client-side data fetching logic.
+\end{itemize}
+
+\subsection{TypeScript}
+The entire frontend codebase is written in TypeScript. This adds static typing to JavaScript, which is invaluable for a project of this scale. It helps catch bugs at compile-time, improves code readability, and makes refactoring and collaboration significantly safer.
+
+\subsection{Tailwind CSS}
+For styling, we adopted Tailwind CSS, a utility-first CSS framework. This allows for rapid UI development by composing complex components directly in the HTML (or in our case, JSX) markup. It enforces design consistency and avoids the bloat of traditional CSS files.
+
+\section{Backend Architecture}
+The backend is the system’s authoritative core, handling all business logic, database interactions, and authentication.
+
+\subsection{Django and Django REST Framework (DRF)}
+Python-based Django was selected for its "batteries-included" philosophy, security features, and scalability.
+\begin{itemize}
+    \item \textbf{Django:} The core framework provides a powerful ORM (Object-Relational Mapper) for database management, a built-in admin panel (invaluable for Super Admins), and a mature ecosystem.
+    \item \textbf{Django REST Framework (DRF):} DRF is a toolkit built on top of Django that specializes in the rapid development of RESTful APIs. It provides standard components for serialization (converting our database models to JSON), authentication (handling JWTs), and permissions (implementing RBAC).
+\end{itemize}
+
+\subsection{External Services}
+\begin{itemize}
+    \item \textbf{Google Mail Service:} Used for all transactional emails, most importantly for sending Email OTPs during user registration and for password reset links. This offloads email delivery to a reliable, high-availability service.
+    \item \textbf{Database (MySQL):} While Django supports multiple databases, a production system like Greenify would run on a robust relational database like MySQL to handle concurrent transactions and ensure data integrity.
+\end{itemize}
+
+\section{Asynchronous Tasks and Performance}
+To ensure the web application remains fast and responsive, time-consuming operations are handled asynchronously and common data is cached.
+
+\subsection{Celery for Asynchronous Task Queues}
+Operations that should not block the main web request (and thus make the user wait) are offloaded to a task queue. We use \textbf{Celery} with a \textbf{Redis} message broker. Key asynchronous tasks include:
+\begin{itemize}
+    \item \textbf{Email Sending:} When a user registers or a violation is assigned, the API returns an "OK" response to the user immediately, while a Celery worker sends the email (via Google Mail Service) in the background.
+    \item \textbf{Push Notifications:} Dispatching push notifications to potentially thousands of devices is handled asynchronously.
+    \item \textbf{Report Generation:} Monthly departmental reports are generated by a scheduled Celery task ("cron job") without impacting live system performance.
+\end{itemize}
+
+\subsection{Redis for Caching and Leaderboards}
+\textbf{Redis}, an in-memory data store, is used for high-speed caching to reduce database load.
+\begin{itemize}
+    \item \textbf{Leaderboard Caching:} The "Green Department Leaderboard" is a computationally intensive query, aggregating thousands of points from the \texttt{point\_transactions}. This result is calculated once and stored in Redis with a short expiry (e.g., 5 minutes). All users requesting the leaderboard read this cached version, allowing for near-instant load times.
+    \item \textbf{Object Caching:} Frequently accessed, rarely changed data, such as user profiles or department details, are also cached to minimize database hits.
+\end{itemize}
+
+\section{Scalability and High Availability}
+The system is architected to handle growth in user load and data volume.
+\begin{itemize}
+    \item \textbf{Stateless Backend:} By using JWT for authentication, the Django backend is stateless. This means we can run multiple instances of the application server (e.g., Gunicorn) behind a \textbf{load balancer} (like Nginx or an AWS ELB).
+    \item \textbf{Decoupled Components:} The frontend (Next.js), backend (Django), database (MySQL), and task queues (Celery/Redis) are all independent services. Each can be scaled, optimized, or replaced without affecting the others.
+    \item \textbf{Database Scaling:} For future growth, the MySQL database can be scaled by implementing read replicas.
+    \item \textbf{CDN for Frontend:} The static build-artifacts from the Next.js PWA (JavaScript, CSS, images) are served from a Content Delivery Network (CDN).
+\end{itemize}
+
+\section{Database Design}
+A well-structured database is essential for the complex workflows in Greenify.
+
+\subsection{Entity-Relationship (ER) Diagram}
+The database schema is designed to model the key entities of the system and their relationships. The primary entities include:
+\begin{itemize}
+    \item \texttt{users}: Stores all user data, using \texttt{admission\_no} as the primary key. It contains fields for \texttt{role}, \texttt{dept\_id} (links to departments), and \texttt{green\_points}.
+    \item \texttt{departments}: Stores department details, including \texttt{total\_points} and \texttt{clearance\_status}.
+    \item \texttt{violations}: The central entity, storing \texttt{violation\_id}, \texttt{image\_path}, \texttt{status}, and \texttt{fine\_amount}. It is linked to the \texttt{users} table via \texttt{assigned\_to} and \texttt{assigned\_by}.
+    \item \texttt{otp\_verifications}: Manages user email verification, linked to the \texttt{users} table.
+    \item \texttt{point\_transactions}: Logs all point transactions, linking to both \texttt{users} and \texttt{violations}. This serves as the auditable ledger for gamification.
+    \item \texttt{notices}: Stores system-wide notices or announcements.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{er.png}
+    \caption{Entity-Relationship Diagram for Greenify (Chen’s Notation)}
+    \label{fig:er-diagram}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{db.png}
+    \caption{Database Relational Schema for Greenify}
+    \label{fig:db-schema}
+\end{figure}
+
+\section{Core Functionality \& Implementation}
+This section details the implementation of the web platform’s most critical features, focusing on the violation workflow and the security model.
+
+\subsection{Violation Processing Workflow (How It Works)}
+The core logic of the Greenify platform is its automated violation processing workflow. This is implemented as a state machine within the Django backend.
+\begin{enumerate}
+    \item \textbf{Detection and Ingestion:} An external AI process (from Chapter 5) analyzes CCTV footage. Upon detecting a violation, it calls a secure API endpoint on our DRF backend (e.g., \texttt{/api/violations/ingest/}).
+    \item \textbf{Automated Routing:} The backend creates a new \texttt{violations} object with a ’Pending’ status and routes it to the correct department’s Admins and nearby Volunteers.
+    \item \textbf{Review and Assignment:} A Department Admin or Volunteer logs into their PWA dashboard and sees the new violation. They review the evidence and assign the case to an identifiable student. The \texttt{violations} status changes to ’Assigned’.
+    \item \textbf{Student Action:} The assigned student receives a push notification and an email (via Celery). They log in to their Greenify portal. They can:
+    \begin{itemize}
+        \item \textbf{Pay Fine:} They are redirected to the \textbf{Razorpay} payment gateway. Upon successful payment, the \texttt{violations} status changes to ’Resolved’.
+        \item \textbf{Appeal:} They can submit an appeal, flagging the case for review.
+    \end{itemize}
+    \item \textbf{Gamification:} Upon the \texttt{violations} status changing to ’Resolved’, the backend logic triggers a function to award GreenPoints to the involved Department and/or Volunteer, creating a new entry in \texttt{point\_transactions}.
+    \item \textbf{Open Pool:} If a case in the ’Pending’ queue is not assigned by the \texttt{open\_pool\_date}, it moves to an ’Open Pool’ state, where any volunteer can claim it.
+\end{enumerate}
+
+\subsection{Authentication \& Authorization}
+Security and access control are implemented using JWT and granular, role-based permissions.
+
+\subsubsection{JWT Authentication}
+We use JSON Web Tokens (JWT) for stateless authentication.
+\begin{enumerate}
+    \item A user submits credentials to \texttt{/api/auth/token/}.
+    \item The DRF backend validates and generates two tokens:
+    \begin{itemize}
+        \item \textbf{Access Token:} A short-lived token (e.g., 15 minutes) sent with every API request.
+        \item \textbf{Refresh Token:} A long-lived token (e.g., 7 days) stored securely to request new Access Tokens.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Email OTP Verification}
+New account registration is verified using a One-Time Password (OTP).
+\begin{enumerate}
+    \item User registers at \texttt{/api/auth/register/}.
+    \item The backend creates a user with \texttt{is\_email\_verified=false} and creates an \texttt{otp\_verifications} entry.
+    \item A Celery task sends the \texttt{otp\_code} to their email.
+    \item The user enters the OTP at \texttt{/api/auth/verify-otp/}.
+    \item If correct, the backend sets \texttt{is\_email\_verified=true}.
+\end{enumerate}
+
+\subsubsection{Role-Based Access Control (RBAC)}
+Access to API endpoints and pages is strictly controlled by the \texttt{role} field in the \texttt{users} table.
+\begin{itemize}
+    \item \textbf{Student:} Can only view/pay their \emph{own} violations.
+    \item \textbf{Volunteer:} Can view unassigned violations in their area, review reports, and assign violations.
+    \item \textbf{Department Admin:} Can do everything a Volunteer can, plus manage students in their department.
+    \item \textbf{Admin (Super Admin):} Can access the Django Admin panel for system-level management.
+\end{itemize}
+
+\subsection{Case Assignment and User Management}
+This workflow bridges the gap between anonymous evidence and an accountable student.
+\begin{itemize}
+    \item \textbf{Student Roster Management:} Department Admins manage the list of all students in the \texttt{users} table.
+    \item \textbf{Volunteer Assignment Workflow:} When a Volunteer or Admin reviews a ’Pending’ violation, they use a search modal in the UI to query the \texttt{users} table by name or \texttt{admission\_no}.
+    \item \textbf{Backend Action:} Clicking "Assign" calls the \texttt{POST /api/violations/<id>/assign/} endpoint. The backend updates the \texttt{violations} record, changing its status to ’Assigned’ and setting the \texttt{assigned\_to} and \texttt{assigned\_by} foreign keys.
+\end{itemize}
+
+\subsection{Gamification: GreenPoint Awarding}
+The GreenPoint system is the engine for positive reinforcement.
+\begin{itemize}
+    \item \textbf{Trigger:} The successful resolution of a violation (status changed to ’Resolved’).
+    \item \textbf{Logic:} An asynchronous Celery task identifies the User (from \texttt{assigned\_by}) and their Department.
+    \item \textbf{Ledger Entry:} The system creates new rows in the \texttt{point\_transactions} table (+10 points to the user) and updates the total \texttt{green\_points} in the \texttt{users} table and \texttt{total\_points} in the \texttt{departments} table.
+    \item \textbf{Leaderboard Update:} The main leaderboard (cached in Redis) runs an aggregate query on this table to display rankings.
+\end{itemize}
+
+\subsection{Payment Gateway Integration (Razorpay)}
+To facilitate seamless and secure fine collection, we integrate the Razorpay payment gateway.
+\begin{enumerate}
+    \item \textbf{Order Creation (Backend):} A student clicks "Pay Fine". The frontend requests an \texttt{order\_id} from \texttt{POST /api/payments/create-order/}. The backend creates this order with Razorpay.
+    \item \textbf{Checkout Modal (Frontend):} The frontend uses the \texttt{order\_id} to open Razorpay’s JavaScript "Checkout" modal.
+    \item \textbf{Payment Confirmation (Webhook):} After payment, Razorpay sends a server-to-server \textbf{webhook} to our \texttt{/api/payments/webhook/} endpoint.
+    \item \textbf{Verification \& Resolution (Backend):} Our backend verifies the webhook’s signature and updates the \texttt{violations} table status to ’Resolved’, which in turn triggers the GreenPoint awarding.
+\end{enumerate}
+\clearpage % This forces a new page
+\subsection{Key API Endpoints}
+The DRF backend exposes a set of structured RESTful endpoints.
+\begin{lstlisting}[language=bash, numbers=none, basicstyle=\ttfamily\footnotesize]
+# --- Authentication ---
+POST /api/auth/register/
+POST /api/auth/verify-otp/
+POST /api/auth/token/        # Login (get access/refresh tokens)
+POST /api/auth/token/refresh/
+POST /api/auth/password-reset/
+
+# --- Violations (Core) ---
+GET  /api/violations/        # List violations (filtered by role)
+GET  /api/violations/my/     # (Student) Get own violations
+GET  /api/violations/<id>/   # Get specific violation details
+POST /api/violations/<id>/assign/ # (Admin/Vol) Assign to student
+POST /api/violations/<id>/appeal/ # (Student) Create an appeal
+POST /api/violations/ingest/  # (AI Server) Ingest new violation
+
+# --- Payments (Razorpay) ---
+POST /api/payments/create-order/  # (Student) Init payment
+POST /api/payments/webhook/       # (Internal) Receive Razorpay confirmation
+
+# --- Crowdsourced Reporting ---
+POST /api/reports/crowd/      # (Student) Submit a new report
+GET  /api/reports/crowd/      # (Admin/Vol) List pending reports
+POST /api/reports/crowd/<id>/verify/ # (Admin/Vol) Convert to violation
+
+# --- Dashboard & Gamification ---
+GET /api/dashboard/stats/
+GET /api/leaderboard/department/  # Reads from Redis cache
+
+# --- Notices ---
+GET /api/notices/           # Get list of active notices
+\end{lstlisting}
+
+% --- CHAPTER 7 ---
+\chapter{Results \& Analysis}
+\label{chap:results}
+
+\section{AI Module Performance (Object Detection)}
+This section presents the quantitative and qualitative results of the trained YOLOv8m waste detection model and the integrated violation detection system.
+
+\subsection{Quantitative Performance}
+The waste detection model demonstrated strong performance on the validation dataset, confirming the effectiveness of the dataset curation and training strategy. The overall \textbf{mAP@.50 was 0.795}, while the stricter \textbf{mAP@.50–.95 was 0.604}.
+
+\begin{table}[H]
+    \centering
+    \caption{Per-class evaluation metrics for the fine-tuned YOLOv8m model.}
+    \label{tab:yolo-metrics}
+    \begin{tabular}{@{}lrrrr@{}}
+        \toprule
+        \textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{mAP@.50} & \textbf{mAP@.50–.95} \\ \midrule
+        BIODEGRADABLE & 0.830 & 0.657 & 0.760 & 0.466 \\
+        CARDBOARD & 0.765 & 0.666 & 0.740 & 0.578 \\
+        GLASS & 0.901 & 0.767 & 0.866 & 0.698 \\
+        METAL & 0.839 & 0.793 & 0.861 & 0.672 \\
+        PAPER & 0.804 & 0.726 & 0.791 & 0.660 \\
+        PLASTIC & 0.842 & 0.649 & 0.755 & 0.551 \\ \midrule
+        \textbf{Overall} & \textbf{0.830} & \textbf{0.710} & \textbf{0.795} & \textbf{0.604} \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+High per-class precision indicates that the model rarely makes false detections, a crucial property for automated alert systems. The high recall for the \emph{metal} and \emph{glass} classes shows strong detection sensitivity across visually distinct materials.
+
+\subsection{Model Performance Plots}
+The performance metrics are further supported by validation plots (Figure \ref{fig:model-plots}). The \emph{normalized confusion matrix} shows clear diagonal dominance, confirming accurate class predictions. The \emph{Precision–Confidence (P)}, \emph{Precision–Recall (PR)}, \emph{Recall–Confidence (R)}, and \emph{F1–Confidence} curves indicate stable performance across confidence thresholds.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{pc.png}
+        \caption{Precision-Confidence Curve}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{pr.png}
+        \caption{Precision-Recall Curve}
+    \end{subfigure}
+    
+    \vspace{1em}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{rc.png}
+        \caption{Recall-Confidence Curve}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{f1.png}
+        \caption{F1-Confidence Curve}
+    \end{subfigure}
+    
+    \vspace{1em}
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{cnormalised.png}
+        \caption{Normalized Confusion Matrix}
+    \end{subfigure}
+    
+    \caption{YOLOv8 model performance plots generated by the validation script.}
+    \label{fig:model-plots}
+\end{figure}
+
+
+\subsection{Qualitative Analysis and Real-World Testing}
+While validation metrics were strong, real-world testing revealed a few limitations. In complex scenes with background elements or human presence, the waste model occasionally produced incorrect classifications. In one observed case, a non-waste region was incorrectly identified as a waste class. This highlights a \emph{domain gap} between training data (mostly isolated waste images) and real-world inputs containing people, backgrounds, and contextual elements. The issue stems from the absence of “negative” and “contextual” images in the training dataset, which limits the model’s ability to distinguish between waste and non-waste objects.
+
+\subsection{System Improvements and Future Scope}
+The project successfully integrates two AI modules—a local YOLOv8 model for waste detection and a cloud-deployed Roboflow model for bin detection—combined with a rule-based violation logic. Despite solid detection metrics, the following improvements are proposed for deployment readiness:
+\begin{itemize}
+    \item \textbf{Dataset Enhancement:} Re-train the waste model with negative samples (e.g., people, backgrounds) and contextual images showing realistic disposal actions.
+    \item \textbf{Unified Model Training:} Combine waste and bin classes into a single YOLOv8 model to reduce dependency on cloud APIs and external color-check scripts.
+    \item \textbf{Refined Violation Logic:} Enhance the IoU-based rule system with centroid verification for improved spatial accuracy.
+    \item \textbf{Edge Deployment:} Optimize the final model using TensorRT for real-time, low-latency performance on edge devices like NVIDIA Jetson.
+\end{itemize}
+
+\section{Integration \& Deployment Performance}
+While the AI/ML team focused on model accuracy (mAP), this module’s performance is measured by \textbf{throughput, latency, and reliability}. On the DGX A100, the YOLOv8m model’s inference speed was extremely fast, with an average time of approximately \textbf{40 ms per frame}. This is well below the real-time threshold. The primary bottleneck in the current system is not inference, but the \textbf{I/O operation} of downloading large video files from the FTP server.
+
+The 10-minute cron interval was chosen as a balance between responsiveness and network load on the shared academic cluster. The API integration proved highly reliable, with all test violations successfully generating tickets in the web dashboard within \textbf{< 2 seconds} of detection.
+
+\begin{table}[H]
+    \centering
+    \caption{Integration Performance Metrics}
+    \label{tab:integration-metrics}
+    \begin{tabular}{@{}lll@{}}
+        \toprule
+        \textbf{Metric} & \textbf{Result} & \textbf{Description} \\ \midrule
+        Target Inference Rate & 4 FPS & Set in \texttt{detection.py} for optimization \\
+        Avg. Inference Time & \textasciitilde 40 ms/frame & YOLOv8m on DGX A100 \\
+        Ticket Creation Latency & \textasciitilde 2 seconds & Time from detection to API POST success \\
+        Pipeline Reliability & 100\% (in test) & All test violations successfully created tickets \\
+        Automation Schedule & 10 minutes & Cron job frequency for FTP check \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Web System Project Status and Progress}
+This section outlines the current development status of the web platform, detailing completed milestones and work currently in progress as of the date of this report.
+
+\subsection{Frontend Development (Next.js PWA)}
+\subsubsection{Completed Features}
+\begin{itemize}
+    \item \textbf{Core PWA Functionality:} The application shell, service worker registration, and web-app manifest have been created, making the site installable on mobile devices.
+    \item \textbf{Landing Page:} A static, public-facing landing page has been designed and built.
+    \item \textbf{Authentication Pages:} The complete UI flow for user registration, OTP verification, login, and password reset is finished.
+    \item \textbf{Authentication API Integration:} The frontend pages are fully connected to the backend \texttt{/api/auth/...} endpoints. User state (logged in / out) is managed globally using React’s Context API.
+\end{itemize}
+
+\subsubsection{Work in Progress}
+\begin{itemize}
+    \item \textbf{User Dashboards:} This is the current major focus. We are building the distinct dashboard UIs for each user role (Student, Volunteer, Admin).
+    \item \textbf{Push Notification Feature:} The backend logic for push notifications is being built (likely using Firebase Cloud Messaging - FCM) and handed off to Celery.
+    \item \textbf{Payment Flow:} Integrating the Razorpay Checkout modal into the student’s violation details page.
+\end{itemize}
+
+\subsection{Backend Development (Django / DRF)}
+\subsubsection{Completed Features}
+\begin{itemize}
+    \item \textbf{Core API Functionality:} APIs for basic CRUD operations for all major models (Violations, Users, etc.) have been created.
+    \item \textbf{Authentication \& Verification System:} The entire security and registration workflow is 100\% complete (Email OTP, RBAC, JWT).
+    \item \textbf{Service Integration:}
+    \begin{itemize}
+        \item \textbf{Google Mail Service:} Successfully integrated for sending OTP and notification emails.
+        \item \textbf{Celery \& Redis (Broker):} Celery is configured to handle email tasks asynchronously.
+    \end{itemize}
+    \item \textbf{Caching (Redis):} A basic caching layer using Redis has been implemented.
+    \item \textbf{Service Worker Operations:} The backend provides the necessary endpoints to support the PWA’s service worker.
+\end{itemize}
+
+\subsubsection{Work in Progress}
+\begin{itemize}
+    \item \textbf{Payment Gateway:} Building the \texttt{/api/payments/create-order/} and \texttt{/api/payments/webhook/} endpoints for Razorpay.
+    \item \textbf{Gamification Logic:} Finalizing the function that awards points and creates a \texttt{point\_transactions} entry.
+    \item \textbf{Leaderboard Optimization:} Implementing the Redis caching specifically for the leaderboard endpoint.
+\end{itemize}
+
+% --- CHAPTER 8 ---
+\chapter{Conclusion \& Future Scope}
+\label{chap:conclusion}
+
+\section{Conclusion}
+This report has detailed the successful design and implementation of the "Greenify" project, an automated waste detection and violation monitoring system. By fine-tuning a YOLOv8m model on a custom-augmented dataset and integrating it with a rule-based computer vision engine, we have created an AI module that can accurately classify waste (0.795 mAP@.50). This is complemented by an action-detection module using ResNet-18 and DeepSORT to provide human-centric context.
+
+This AI system is deployed within a robust, automated pipeline on a high-performance server, which ingests video and successfully communicates violations to a central web application. The web platform, built on a modern Next.js and Django stack, serves as the scalable backbone for the entire system. It translates the real-world actions detected by the AI into digital, actionable data. Through a combination of automated surveillance, clear accountability workflows (violation assignment, fine payment), and positive reinforcement via gamification (GreenPoints), the Greenify platform fosters an environmentally responsible campus culture. It moves the needle from passive monitoring to active engagement, providing a complete, end-to-end solution for promoting long-term environmental stewardship on campus.
+
+\section{Future Scope}
+While the current system is a successful proof-of-concept, there are several avenues for future development across all modules.
+
+\subsection{AI Module Enhancements}
+\begin{itemize}
+    \item \textbf{Train a Unified Detector:} In the current approach, waste detection is handled by the YOLOv8 model, while bin detection is managed separately using the Roboflow model and OpenCV-based color segmentation. In future work, these can be combined by including bins as additional classes in the training dataset, creating a single unified YOLOv8 model capable of detecting both waste and bins simultaneously .
+    \item \textbf{Person Detection and Anonymization:} The model could be extended to detect people in the act of disposing of waste. This could help identify responsible parties, but would need to be paired with automatic blurring or anonymization techniques to respect privacy.
+    \item \textbf{Continuous Dataset Improvement:} The system could be deployed to collect new images from the target campus environment to continuously retrain and improve the model over time.
+\end{itemize}
+
+\subsection{Integration Deployment Enhancements}
+\begin{itemize}
+    \item \textbf{Nightly Batch Processing:} To reduce the overall load on the academic HPC cluster, shift the cron job to run nightly, batch processing the entire day’s footage from the NVR’s FTP server.
+    \item \textbf{Live RTSP Ingestion:} As a higher-performance alternative, replace the FTP polling system with direct consumption of live \textbf{RTSP (Real-Time Streaming Protocol)} feeds from IP cameras to reduce violation latency from minutes to seconds.
+    \item \textbf{Edge Deployment:} Optimize the model using \textbf{TensorRT} and deploy it on \textbf{NVIDIA Jetson Nano} or Orin Nano devices at the camera site. This "edge" approach drastically reduces server load, as only violation alerts are sent to the central server.
+    \item \textbf{Real-time Notifications:} Upgrade the integration protocol from REST API (polling) to \textbf{WebSocket} or \textbf{MQTT} for instant, "push" notifications to the dashboard.
+    \item \textbf{Dynamic Evidence Upload:} Modify the API integration to upload the *actual* annotated violation frame to a media server and send that unique URL in the API request, rather than a default image.
+\end{itemize}
+
+\subsection{Web Platform Enhancements}
+\begin{itemize}
+    \item \textbf{Expanded Gamification:} Expand the GreenPoints system with user-level badges, individual leaderboards, and a reward-redemption system (e.g., campus store discounts).
+    \item \textbf{Violation Appeal System:} A formal workflow within the web app for students to appeal a fine, which then routes to a specific admin for a secondary review.
+    \item \textbf{Anomaly Reporting:} Allow users (or the AI) to report non-violation issues, such as a full or broken bin, to campus maintenance.
+    \item \textbf{Predictive Analytics:} With enough data, use machine learning to predict violation "hotspots" and peak times, allowing for preventative measures.
+\end{itemize}
+
+% --- REFERENCES ---
+\newpage
+\chapter*{References}
+\addcontentsline{toc}{chapter}{References}
+
+\begin{enumerate}
+    \item Simonyan, K., Zisserman, A. (2014). Two-Stream Convolutional Networks for Action Recognition in Videos.
+    \item Carreira, J., Zisserman, A. (2017). Quo Vadis, Action Recognition? A New Model and the Kinetics Dataset.
+    \item Wojke, N., Bewley, A., Paulus, D. (2017). Simple Online and Realtime Tracking with a Deep Association Metric (DeepSORT).
+    \item \textbf{Jocher, G., Chaurasia, A., Qiu, J., \& Stoken, A.} (2023). \textit{YOLOv8: Ultralytics Next-Generation Object Detection Model.} Ultralytics.
+ [Online]. Available: https://docs.ultralytics.com
+    \item \textbf{Bochkovskiy, A., Wang, C. Y., \& Liao, H. Y. M.} (2020). \textit{YOLOv4: Optimal Speed and Accuracy of Object Detection.} \textit{arXiv preprint arXiv:2004.10934.}
+ [Online]. Available: https://arxiv.org/abs/2004.10934
+    \item \textbf{Alam, M. S., Rahman, M. M., \& Hasan, M. T.} (2022). \textit{Deep Learning-Based Smart Waste Classification System for Sustainable Waste Management.} \textit{Sustainability}, 14(4), 2261.
+ [Online]. Available: https://doi.org/10.3390/su14042261
+    \item \textbf{Mohan, N., \& Raj, R.} (2023). \textit{Automated Waste Segregation Using YOLOv8 and Deep Learning.} \textit{International Journal of Engineering Research \& Technology (IJERT)}, 12(7), 450–455.
+
+ [Online]. Available: https://www.ijert.org/ 
+\end{enumerate}
+
+% --- APPENDICES ---
+\appendix
+\chapter{Implementation Code - AI Modules}
+\label{app:ai-code}
+
+\begin{lstlisting}[language=Python, caption={Model training script (train.py)}, label={lst:train}]
+from ultralytics import YOLO
+
+# -------------------
+# Dataset Configuration
+# -------------------
+# Path to your data.yaml file, which contains the paths to the training
+# and validation image folders, and the class names.
+dataset_path = "/workspace/taco-greenify/greenify/data.yaml"
+
+# -------------------
+# Model Loading
+# -------------------
+# Load the pre-trained YOLOv8 medium model (yolov8m.pt).
+# Using pre-trained weights is important for transfer learning
+# and faster convergence.
+model = YOLO("yolov8m.pt")
+
+# -------------------
+# Training Configuration
+# -------------------
+print("Starting YOLOv8m model training...")
+model.train(
+    # --- Core Parameters ---
+    data=dataset_path,   # Path to dataset configuration
+    imgsz=640,           # Input image size (width, height)
+    epochs=80,           # Total number of training epochs
+    batch=64,            # Batch size; adjust according to GPU memory
+    device=[0, 3],       # Specify GPU device indices
+    workers=8,           # Number of data loading threads
+    
+    # --- Mixed Precision & Optimization ---
+    half=True,           # FP16 mixed precision for faster training & lower memory
+    optimizer="AdamW",   # Optimizer: AdamW decouples weight decay from gradients
+    lr0=0.001,           # Initial learning rate
+    
+    # --- Augmentation ---
+    augment=True,        # Enable data augmentation
+    close_mosaic=10,     # Disable mosaic in last 10 epochs for better final accuracy
+    hsv_h=0.015,         # Hue augmentation intensity
+    hsv_s=0.7,           # Saturation augmentation intensity
+    hsv_v=0.4,           # Value (brightness) augmentation intensity
+    fliplr=0.5,          # Horizontal flip probability
+    flipud=0.1,          # Vertical flip probability
+    mixup=0.2,           # Mixup augmentation intensity
+    cutmix=0.2,          # Cutmix augmentation intensity
+    erasing=0.4,         # Random erasing augmentation
+    
+    # --- Project Management ---
+    project="garbage_yolo", # Root directory to save training runs
+    name="yolov8m_augmented", # Specific run name
+    exist_ok=True,       # Overwrite existing run with same name
+    save_period=10       # Save checkpoint every 10 epochs
+)
+print("YOLOv8m training started successfully.")
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption={Model evaluation script (evaluate.py)}, label={lst:evaluate}]
+from ultralytics import YOLO
+import csv
+from pathlib import Path
+
+# -------------------
+# Configuration
+# -------------------
+base_dir = Path("/workspace/taco-greenify/greenify")
+project_dir = base_dir / "garbage_yolo"
+run_name = "yolov8m_augmented"
+weights_dir = project_dir / run_name / "weights"
+
+# Automatically select model weights
+if (weights_dir / "best.pt").exists():
+    model_path = weights_dir / "best.pt"
+elif (weights_dir / "last.pt").exists():
+    model_path = weights_dir / "last.pt"
+else:
+    raise FileNotFoundError(f"Could not find 'best.pt' or 'last.pt' in {weights_dir}")
+
+dataset_path = base_dir / "data.yaml"
+output_csv = base_dir / "evaluation_results.csv"
+
+# -------------------
+# Load Model
+# -------------------
+print(f"Loading model from: {model_path}")
+model = YOLO(str(model_path))
+
+# -------------------
+# Run Validation
+# -------------------
+print("Running validation on the combined dataset...")
+results = model.val(
+    data=str(dataset_path),
+    batch=32,
+    imgsz=640,
+    split='val'
+)
+
+# -------------------
+# Process Metrics
+# -------------------
+print("\n===== Per-Class Metrics =====")
+class_names = results.names
+metrics_list = []
+total_precision, total_recall, total_map50, total_map5095 = 0, 0, 0, 0
+num_classes = len(class_names)
+
+# Use class_result(i) to get metrics per class
+for i, cls_name in class_names.items():
+    p, r, ap50, ap = results.box.class_result(i) # precision, recall, mAP50, mAP50-95
+    total_precision += p
+    total_recall += r
+    total_map50 += ap50
+    total_map5095 += ap
+    metrics_list.append({
+        "class": cls_name,
+        "precision": float(p),
+        "recall": float(r),
+        "mAP@50": float(ap50),
+        "mAP50-95": float(ap)
+    })
+    print(f"{cls_name}: Precision={p:.3f}, Recall={r:.3f}, mAP50={ap50:.3f}, mAP50-95={ap:.3f}")
+
+# -------------------
+# Compute Overall Metrics
+# -------------------
+overall_metrics = {
+    "class": "Overall",
+    "precision": total_precision / num_classes,
+    "recall": total_recall / num_classes,
+    "mAP50": total_map50 / num_classes,
+    "mAP50-95": total_map5095 / num_classes
+}
+metrics_list.append(overall_metrics)
+
+print("\n===== Overall Metrics =====")
+print(f"Precision={overall_metrics['precision']:.3f}, Recall={overall_metrics['recall']:.3f}, "
+      f"mAP50={overall_metrics['mAP50']:.3f}, mAP50-95={overall_metrics['mAP50-95']:.3f}")
+
+# -------------------
+# Save to CSV
+# -------------------
+print(f"\nSaving evaluation results to {output_csv}")
+with open(output_csv, "w", newline="") as f:
+    writer = csv.DictWriter(f, fieldnames=["class", "precision", "recall", "mAP50", "mAP50-95"])
+    writer.writeheader()
+    writer.writerows(metrics_list)
+
+print("Evaluation complete. Results saved successfully.")
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption={Rule-based violation detection script (rulebased.py)}, label={lst:rulebased}]
+# First, ensure you have the libraries:
+# !pip install ultralytics opencv-python numpy inference-sdk
+import argparse
+import time
+import os
+from pathlib import Path
+import csv
+import cv2
+import numpy as np
+from ultralytics import YOLO
+from inference_sdk import InferenceHTTPClient # <-- Use the new SDK
+
+# -------------------------
+# CONFIG / Defaults
+# -------------------------
+DEFAULT_MODEL = "shared_model/best_evaluated_model.pt"
+DEFAULT_OUTPUT_CSV = "violation_log.csv"
+EVIDENCE_DIR = "evidence"
+os.makedirs(EVIDENCE_DIR, exist_ok=True)
+
+# Map waste type to expected bin color (This logic is still needed)
+WASTE_TO_COLOR = {
+    "BIODEGRADABLE": "green",
+    "CARDBOARD": "blue",
+    "GLASS": "green",
+    "METAL": "yellow",
+    "PAPER": "blue",
+    "PLASTIC": "red"
+}
+
+# Drawing colors (BGR)
+COLOR_BIN = {"green": (0, 255, 0), "red": (0, 0, 255), "blue": (255, 0, 0), "yellow": (0, 255, 255), "other": (100, 100, 100)}
+COLOR_VIOLATION = (0, 0, 255)
+COLOR_OK = (0, 255, 0)
+IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".bmp", ".tiff"}
+
+# HSV ranges for bin color detection (Still needed)
+HSV_RANGES = {
+    "green": (np.array([36, 50, 50]), np.array([85, 255, 255])),
+    "red1": (np.array([0, 120, 50]), np.array([10, 255, 255])),
+    "red2": (np.array([170, 120, 50]), np.array([180, 255, 255])),
+    "blue": (np.array([90, 80, 30]), np.array([140, 255, 255])),
+    "yellow": (np.array([20, 100, 100]), np.array([35, 255, 255]))
+}
+IOU_THRESHOLD_VIOLATION = 0.1
+
+# -------------------------
+# Helper Functions
+# -------------------------
+def calculate_iou(box1, box2):
+    x1 = max(box1[0], box2[0])
+    y1 = max(box1[1], box2[1])
+    x2 = min(box1[2], box2[2])
+    y2 = min(box1[3], box2[3])
+    inter_area = max(0, x2 - x1) * max(0, y2 - y1)
+    box1_area = (box1[2] - box1[0]) * (box1[3] - box1[1])
+    box2_area = (box2[2] - box2[0]) * (box2[3] - box2[1])
+    union_area = box1_area + box2_area - inter_area
+    if union_area == 0:
+        return 0
+    return inter_area / union_area
+
+def get_dominant_color(roi):
+    if roi.size == 0:
+        return "unknown"
+    
+    hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
+    color_scores = {}
+    
+    mask_g = cv2.inRange(hsv, HSV_RANGES["green"][0], HSV_RANGES["green"][1])
+    color_scores["green"] = cv2.countNonZero(mask_g)
+    
+    mask_b = cv2.inRange(hsv, HSV_RANGES["blue"][0], HSV_RANGES["blue"][1])
+    color_scores["blue"] = cv2.countNonZero(mask_b)
+    
+    mask_y = cv2.inRange(hsv, HSV_RANGES["yellow"][0], HSV_RANGES["yellow"][1])
+    color_scores["yellow"] = cv2.countNonZero(mask_y)
+    
+    mask_r1 = cv2.inRange(hsv, HSV_RANGES["red1"][0], HSV_RANGES["red1"][1])
+    mask_r2 = cv2.inRange(hsv, HSV_RANGES["red2"][0], HSV_RANGES["red2"][1])
+    color_scores["red"] = cv2.countNonZero(mask_r1 | mask_r2)
+    
+    dominant_color = max(color_scores, key=color_scores.get)
+    
+    total_pixels = roi.shape[0] * roi.shape[1]
+    if total_pixels == 0 or color_scores[dominant_color] / total_pixels < 0.1: # e.g., < 10%
+        return "unknown"
+    
+    return dominant_color
+
+def check_violation(waste_label, waste_bbox, bins_detected):
+    desired_color = WASTE_TO_COLOR.get(waste_label.upper())
+    max_iou_overall = 0
+    bin_with_max_iou = None
+    
+    for bin_color, bboxes in bins_detected.items():
+        for bin_bbox in bboxes:
+            iou = calculate_iou(waste_bbox, bin_bbox)
+            if iou > max_iou_overall:
+                max_iou_overall = iou
+                bin_with_max_iou = bin_color
+                
+    is_in_any_bin = max_iou_overall >= IOU_THRESHOLD_VIOLATION
+    
+    if not is_in_any_bin:
+        return True, "None (Littering)", max_iou_overall
+    else:
+        if bin_with_max_iou == desired_color:
+            return False, bin_with_max_iou, max_iou_overall # Correct bin
+        else:
+            return True, bin_with_max_iou, max_iou_overall # Wrong bin
+
+# -------------------------
+# UPDATED "PROCESS_FRAME"
+# -------------------------
+def process_frame(frame, waste_model, bin_client, bin_model_id, frame_no, csv_writer):
+    """
+    This function now uses YOUR model and the NEW Roboflow client.
+    """
+    # 1. Detect Waste (using YOUR YOLO model)
+    waste_results = waste_model(frame, conf=0.5, verbose=False)[0]
+    waste_boxes = waste_results.boxes.xyxy.cpu().numpy() if waste_results.boxes else np.array([])
+    waste_classes = waste_results.boxes.cls.cpu().numpy().astype(int) if waste_results.boxes else np.array([])
+    waste_confs = waste_results.boxes.conf.cpu().numpy() if waste_results.boxes else np.array([])
+    
+    # 2. Detect Bins (using the NEW inference-sdk)
+    # The .infer() method takes the image (as a numpy array) and model ID
+    bin_results_rf = bin_client.infer(frame, model_id=bin_model_id)
+    
+    # 3. Get bin color
+    bins_detected = {}
+    
+    # Parse the new results dictionary
+    for bin_pred in bin_results_rf['predictions']:
+        if bin_pred['class'] == 'trashbin':
+            # The new SDK gives x1, y1, x2, y2 directly
+            x1 = int(bin_pred['x1'])
+            y1 = int(bin_pred['y1'])
+            x2 = int(bin_pred['x2'])
+            y2 = int(bin_pred['y2'])
+            
+            bin_bbox = [x1, y1, x2, y2]
+            
+            bin_roi = frame[y1:y2, x1:x2]
+            if bin_roi.size == 0: continue
+            
+            color_name = get_dominant_color(bin_roi)
+            
+            if color_name != 'unknown':
+                if color_name not in bins_detected:
+                    bins_detected[color_name] = []
+                bins_detected[color_name].append(bin_bbox)
+                cv2.rectangle(frame, (x1, y1), (x2, y2), COLOR_BIN[color_name], 2)
+                cv2.putText(frame, f"{color_name}_bin (AI)", (x1, y1 - 8), cv2.FONT_HERSHEY_SIMPLEX, 0.6, COLOR_BIN[color_name], 2)
+
+    # 4. Loop through waste & check violations (This is your original logic)
+    violations_count = 0
+    for bbox, cls_idx, conf in zip(waste_boxes, waste_classes, waste_confs):
+        x1, y1, x2, y2 = map(int, bbox.tolist())
+        label = waste_model.names.get(int(cls_idx), str(cls_idx))
+        
+        is_violation, detected_bin_color, iou_score = check_violation(label, (x1, y1, x2, y2), bins_detected)
+        
+        color = COLOR_VIOLATION if is_violation else COLOR_OK
+        
+        status_text = "VIOLATION" if is_violation else "OK"
+        if not is_violation:
+            txt = f"{label} {status_text} in {detected_bin_color} ({conf:.2f})"
+        elif detected_bin_color == "None (Littering)":
+            txt = f"{label} {status_text} (Not in any bin) ({conf:.2f})"
+        else:
+            txt = f"{label} {status_text} in wrong bin ({detected_bin_color}) ({conf:.2f})"
+            
+        cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
+        cv2.putText(frame, txt, (x1, y1 - 8), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+        
+        csv_writer.writerow({
+            "timestamp": time.time(),
+            "frame_no": frame_no,
+            "waste_label": label,
+            "conf": f"{conf:.3f}",
+            "bbox_x1": x1, "bbox_y1": y1, "bbox_x2": x2, "bbox_y2": y2,
+            "detected_bin": detected_bin_color,
+            "violation": is_violation,
+            "iou_score": f"{iou_score:.3f}"
+        })
+        
+        if is_violation:
+            violations_count += 1
+            fname = f"violation_f{frame_no}_{label}_{detected_bin_color}_{int(time.time())}.jpg"
+            cv2.imwrite(os.path.join(EVIDENCE_DIR, fname), frame.copy())
+            
+    return frame, violations_count
+
+# -------------------------
+# MODIFIED Main
+# -------------------------
+def main(args):
+    print("Loading YOUR YOLOv8 waste model:", args.model)
+    waste_model = YOLO(args.model) # <-- MODEL 1
+    print("Waste model classes:", waste_model.names)
+    
+    print("Initializing Roboflow Inference Client...")
+    # --- THIS IS THE NEW, CORRECT WAY TO LOAD ---
+    bin_client = InferenceHTTPClient(
+        api_url="https://serverless.roboflow.com",
+        api_key="s2n4sbXvCu7DSfxo0t68"
+    )
+    # This is the ID for your v3 model
+    bin_model_id = "trashbin-j2w5l-tcmqa/3"
+    print(f"Client initialized for model: {bin_model_id}")
+    
+    csv_fields = ["timestamp", "frame_no", "waste_label", "conf", "bbox_x1", "bbox_y1", "bbox_x2", "bbox_y2", "detected_bin", "violation", "iou_score"]
+    with open(args.output_csv, "w", newline="") as csv_file:
+        csv_writer = csv.DictWriter(csv_file, fieldnames=csv_fields)
+        csv_writer.writeheader()
+        
+        input_path = Path(args.input)
+        frame_no = 0
+        total_violations = 0
+        
+        # Image folder
+        if input_path.is_dir():
+            files = sorted([f for f in input_path.iterdir() if f.suffix.lower() in IMAGE_EXTS])
+            for fpath in files:
+                frame = cv2.imread(str(fpath))
+                if frame is None: continue
+                frame_no += 1
+                # Pass the client and model ID
+                annotated, vcount = process_frame(frame.copy(), waste_model, bin_client, bin_model_id, frame_no, csv_writer)
+                total_violations += vcount
+                cv2.imwrite(f"annot_{fpath.name}", annotated)
+                
+        # Single image
+        elif input_path.is_file() and input_path.suffix.lower() in IMAGE_EXTS:
+            frame = cv2.imread(str(input_path))
+            if frame is not None:
+                frame_no += 1
+                # Pass the client and model ID
+                annotated, vcount = process_frame(frame.copy(), waste_model, bin_client, bin_model_id, frame_no, csv_writer)
+                total_violations += vcount
+                out_name = f"annot_{input_path.name}"
+                cv2.imwrite(out_name, annotated)
+                print("Annotated image saved to", out_name)
+                
+        # Video
+        else:
+            try:
+                cap_idx = int(args.input)
+                cap = cv2.VideoCapture(cap_idx)
+            except ValueError:
+                cap = cv2.VideoCapture(str(args.input))
+                
+            if not cap.isOpened():
+                print("ERROR: cannot open video/webcam:", args.input)
+                return
+            
+            fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+            out_name = f"annotated_{Path(args.input).stem}.mp4"
+            ret, frame = cap.read()
+            if not ret:
+                print("ERROR: empty video or cannot read first frame")
+                cap.release()
+                return
+            
+            h, w = frame.shape[:2]
+            out_video = cv2.VideoWriter(out_name, fourcc, 20, (w, h))
+            cap.set(cv2.CAP_PROP_POS_FRAMES, 0) # Reset to start
+            
+            while True:
+                ret, frame = cap.read()
+                if not ret:
+                    break
+                frame_no += 1
+                # Pass the client and model ID
+                annotated, vcount = process_frame(frame.copy(), waste_model, bin_client, bin_model_id, frame_no, csv_writer)
+                total_violations += vcount
+                out_video.write(annotated)
+                
+            cap.release()
+            out_video.release()
+            print("Annotated video saved to", out_name)
+            
+    print("Done. Frames processed:", frame_no, "| Total violations:", total_violations)
+    print("CSV log:", args.output_csv)
+    print("Evidence folder:", EVIDENCE_DIR)
+
+# -------------------------
+# CLI
+# -------------------------
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="YOLOv8 Rule-Based Waste Violation Detector")
+    parser.add_argument("--model", type=str, default=DEFAULT_MODEL, help="Path to YOUR YOLOv8 waste model")
+    parser.add_argument("--input", type=str, required=True, help="Path to image, folder, or video")
+    parser.add_argument("--output_csv", type=str, default=DEFAULT_OUTPUT_CSV, help="CSV file to save violations")
+    args = parser.parse_args()
+    main(args)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption={Batch inference script (testimage.py)}, label={lst:testimage}]
+from ultralytics import YOLO
+import os
+import pandas as pd
+
+# -------------------
+# Paths
+# -------------------
+folder_path = "/workspace/taco-greenify/greenify/test_image/"
+weights_path = "/workspace/taco-greenify/greenify/garbage_yolo/yolov8_garbage/weights/best.pt"
+csv_output_path = os.path.join(folder_path, "results.csv")
+predicted_folder = os.path.join(folder_path, "predicted")
+
+# Ensure folders exist
+os.makedirs(folder_path, exist_ok=True)
+os.makedirs(predicted_folder, exist_ok=True)
+
+# Load YOLO model
+model = YOLO(weights_path)
+
+# Find all images in folder
+image_files = [f for f in os.listdir(folder_path) if f.lower().endswith((".jpg", ".jpeg", ".png"))]
+
+if not image_files:
+    print(f"No images found in {folder_path}")
+    exit()
+
+# Prepare CSV data
+csv_data = []
+
+for img_name in image_files:
+    image_path = os.path.join(folder_path, img_name)
+    
+    # Run inference and save predicted image in predicted_folder
+    results = model.predict(
+        source=image_path,
+        save=True,
+        save_dir=predicted_folder,
+        imgsz=640,
+        conf=0.25
+    )
+    
+    # YOLO saves image with original name, so rename it to include _pred
+    original_saved_path = os.path.join(predicted_folder, img_name)
+    pred_saved_path = os.path.join(predicted_folder, os.path.splitext(img_name)[0] + "_pred" + os.path.splitext(img_name)[1])
+    
+    if os.path.exists(original_saved_path):
+        os.rename(original_saved_path, pred_saved_path)
+        
+    # Prepare CSV data for detected boxes
+    for r in results:
+        for box in r.boxes:
+            csv_data.append({
+                "image": img_name,
+                "class_id": int(box.cls[0]),
+                "confidence": float(box.conf[0]),
+                "x1": float(box.xyxy[0][0]),
+                "y1": float(box.xyxy[0][1]),
+                "x2": float(box.xyxy[0][2]),
+                "y2": float(box.xyxy[0][3])
+            })
+
+# Save all results to CSV
+df = pd.DataFrame(csv_data)
+df.to_csv(csv_output_path, index=False)
+print(f"Detection results saved to CSV: {csv_output_path}")
+print(f"Predicted images saved inside: {predicted_folder}")
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption={Custom PyTorch Dataset for loading video frames (dataset.py) - Action Detection}, label={lst:dataset}]
+import torch
+from torch.utils.data import Dataset, DataLoader
+from torchvision import transforms
+from PIL import Image
+import os
+
+# Data Transforms: Resize and To Tensor for ResNet-18 input
+transform = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+])
+
+class VideoFramesDataset(Dataset):
+    def __init__(self, root_dir, transform=None):
+        self.root_dir = root_dir
+        self.transform = transform
+        self.samples = []
+        self.classes = sorted([d for d in os.listdir(root_dir) if os.path.isdir(os.path.join(root_dir, d))])
+        self.class_to_idx = {cls_name: i for i, cls_name in enumerate(self.classes)}
+        
+        # Loop through class folders and their subfolders to find frames
+        for cls in self.classes:
+            cls_folder = os.path.join(root_dir, cls)
+            for subfolder in os.listdir(cls_folder):
+                subfolder_path = os.path.join(cls_folder, subfolder)
+                if os.path.isdir(subfolder_path):
+                    for file in os.listdir(subfolder_path):
+                        if file.endswith((".jpg", ".png", ".jpeg")):
+                            self.samples.append((os.path.join(subfolder_path, file), self.class_to_idx[cls]))
+                            
+    def __len__(self):
+        return len(self.samples)
+        
+    def __getitem__(self, idx):
+        path, label = self.samples[idx]
+        image = Image.open(path).convert("RGB")
+        if self.transform:
+            image = self.transform(image)
+        return image, label
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption={ResNet-18 model setup (actionnet.py) - Action Detection}, label={lst:actionnet}]
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torchvision import models
+
+# Config
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+num_classes = 4 # (throwing, placing, walking, idle)
+
+# Load pre-trained ResNet-18 model
+model = models.resnet18(pretrained=True)
+
+# Replace the final fully connected layer (model.fc.in_features = 512)
+model.fc = nn.Linear(model.fc.in_features, num_classes)
+model = model.to(device)
+
+# Define loss function and optimizer
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001)
+
+def predict_action(cropped_image_tensor):
+    """ Placeholder for inference function using the trained model"""
+    model.eval()
+    with torch.no_grad():
+        output = model(cropped_image_tensor.to(device).unsqueeze(0))
+        _, predicted_class = torch.max(output, 1)
+        return predicted_class.item(), output.softmax(dim=1).cpu().numpy()
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption={DeepSORT utility function (tracker\_utils.py) - Action Detection}, label={lst:tracker-utils}]
+def yolo_to_deepsort(detections, shrink_ratio=0.05):
+    """
+    Convert YOLO detections (x1, y1, x2, y2, conf, cls) to DeepSORT format:
+    list of [([x, y, w, h], conf, cls)]
+    A shrink ratio is applied to the box for better identity embedding.
+    """
+    ds_dets = []
+    for det in detections:
+        x1, y1, x2, y2, conf, cls = det[:6] # Assuming YOLO detection format
+        
+        # Calculate box dimensions (DeepSORT requires (x, y, w, h))
+        w = x2 - x1
+        h = y2 - y1
+        
+        # Apply optional shrink
+        shrink_amount_w = w * shrink_ratio
+        shrink_amount_h = h * shrink_ratio
+        x_new = x1 + shrink_amount_w / 2 # top-left x
+        y_new = y1 + shrink_amount_h / 2 # top-left y
+        w_new = w - shrink_amount_w
+        h_new = h - shrink_amount_h
+        
+        # Format: ([x_tl, y_tl, w, h], confidence, class_id)
+        ds_dets.append(((float(x_new), float(y_new), float(w_new),
+                         float(h_new)), float(conf), int(cls)))
+    return ds_dets
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption={Simplified inference loop (run\_pipeline.py) - Action Detection}, label={lst:run-pipeline}]
+# Main Imports
+import cv2
+from ultralytics import YOLO
+from deep_sort_realtime.deepsort_tracker import DeepSort
+import torch # Assuming actionnet.py and dataset.py are imported
+
+# Initialize components
+yolov5_model = YOLO('yolov5s.pt') # YOLO for person/bin/waste detection
+deepsort_tracker = DeepSort(max_age=30, n_init=3) # Init tracker
+action_labels = {0: 'throwing', 1: 'placing', 2: 'walking', 3: 'idle'}
+
+# Mock functions for clarity
+def get_person_boxes_from_yolo(yolo_results): return []
+def get_bin_boxes_from_yolo(yolo_results): return []
+def get_cropped_image(frame, track_box): return frame
+def preprocess_for_resnet(crop): return torch.randn(3, 224, 224)
+def find_waste_after_action(track, frame_idx): return None
+def find_bin_containing(waste_box, frame_bins, iou_threshold): return None
+def bin_color_matches(waste_box, matched_bin): return False
+def save_evidence_clip(track, frame_idx, label): pass
+def log_violation(track_id, action, label, frame_idx): pass
+def predict_action(tensor): return 0, None # Mock from actionnet.py
+def yolo_to_deepsort(detections): return [] # Mock from tracker_utils.py
+
+video_stream = [] # Placeholder
+
+for frame_idx, frame in enumerate(video_stream):
+    # 1. YOLO Detection (Person and Objects)
+    yolo_results = yolov5_model(frame)
+    
+    person_detections = get_person_boxes_from_yolo(yolo_results)
+    frame_bins = get_bin_boxes_from_yolo(yolo_results) # Assumes bins are detected by YOLO
+    
+    # 2. DeepSORT Tracking (Person ID persistence)
+    ds_format_dets = yolo_to_deepsort(person_detections)
+    tracks = deepsort_tracker.update_tracks(ds_format_dets, frame=frame)
+    
+    for track in tracks:
+        if not track.is_confirmed():
+            continue
+            
+        # Get cropped image of the person and resize for ResNet-18
+        track_crop = get_cropped_image(frame, track.to_tlbr())
+        cropped_tensor = preprocess_for_resnet(track_crop)
+        
+        # 3. Frame-level Classification
+        action_id, action_probs = predict_action(cropped_tensor) # Uses ResNet-18 model
+        action_label = action_labels[action_id]
+        
+        if action_label in ['throwing', 'placing']:
+            # 4. Violation Logic
+            waste_box = find_waste_after_action(track, frame_idx)
+            matched_bin = find_bin_containing(waste_box, frame_bins, iou_threshold=0.1)
+            
+            if matched_bin is None:
+                label = 'Littering'
+            elif bin_color_matches(waste_box, matched_bin):
+                label = 'Correct Disposal'
+            else:
+                label = 'Wrong Bin'
+                
+            # 5. Evidence and Logging
+            if label != 'Correct Disposal':
+                save_evidence_clip(track, frame_idx, label)
+                log_violation(track.track_id, action_label, label, frame_idx)
+\end{lstlisting}
+
+\chapter{Implementation Code - Integration \& Deployment}
+\label{app:integration-code}
+
+\begin{lstlisting}[language=bash, caption={Docker container run command for Greenify AI module}, label={lst:docker-run}]
+docker run -it --gpus all \
+    -p 7189:8888 \
+    -v /raid/Colleges/cet/CA/Student/tve24mca-2022/work:/workspace \
+    --memory 64g \
+    --memory-swap 64g \
+    --shm-size=4g \
+    --name greenifychai \
+    nvcr.io/nvidia/pytorch:24.01-py3
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption={FTP video ingestion script (ftpconnect.py)}, label={lst:ftpconnect}]
+from ftplib import FTP, error_perm, all_errors
+import os
+import sys
+import subprocess
+
+# ==== CONFIGURATION ====
+FTP_HOST = "192.168.7.114"
+FTP_USER = "ftpuser"
+FTP_PASS = "nandumon"
+REMOTE_DIR = "/files"      # Remote FTP folder
+LOCAL_DIR = "./downloads"  # Local folder to save files
+
+def download_files():
+    try:
+        # Connect to FTP server
+        ftp = FTP(FTP_HOST, timeout=10)
+        ftp.login(FTP_USER, FTP_PASS)
+        ftp.set_pasv(True) # Add this after ftp.login()
+        print(f"Connected to {FTP_HOST} as {FTP_USER}")
+        
+        try:
+            ftp.cwd(REMOTE_DIR)
+            print(f"Changed to remote directory: {REMOTE_DIR}")
+        except error_perm:
+            print(f"Remote directory {REMOTE_DIR} does not exist.")
+            ftp.quit()
+            return
+            
+        # Ensure local folder exists
+        os.makedirs(LOCAL_DIR, exist_ok=True)
+        
+        try:
+            files = ftp.nlst()
+            if not files:
+                print("No files found in remote directory.")
+            else:
+                print(f"Found {len(files)} files: {files}")
+        except all_errors as e:
+            print(f"Failed to list files: {e}")
+            ftp.quit()
+            return
+            
+        # Download each file
+        for filename in files:
+            local_path = os.path.join(LOCAL_DIR, filename)
+            try:
+                with open(local_path, "wb") as f:
+                    ftp.retrbinary(f"RETR {filename}", f.write)
+                print(f"Downloaded: {filename}")
+            except all_errors as e:
+                print(f"Failed to download {filename}: {e}")
+                
+        ftp.quit()
+        print("All files processed successfully.")
+        
+    except all_errors as e:
+        print(f"FTP connection failed: {e}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    download_files()
+    subprocess.run(["python3", "/workspace/integration/detection.py"])
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption={AI inference and API integration script (detection.py)}, label={lst:detection}]
+import os
+import cv2
+import pandas as pd
+import requests
+from ultralytics import YOLO
+from collections import defaultdict
+
+# ==== CONFIGURATION ====
+VIDEO_FOLDER = "./downloads"       # Folder containing videos
+OUTPUT_CSV = "detections.csv"      # Detailed detections CSV
+SUMMARY_CSV = "detections_summary.csv" # Frame-wise summary CSV
+YOLO_MODEL = "./best_evaluated_model.pt" # Custom model
+OUTPUT_SUFFIX = "output_"          # Prefix for output videos
+
+# Inference control
+ENABLE_FPS_LIMIT = True    # Toggle ON/OFF
+TARGET_FPS = 4             # Inference FPS
+
+# API configuration (for optional sending)
+API_URL = "http://localhost:8000/api/violations/tickets/create/"
+DEFAULT_LOCATION_ID = "1"
+DEFAULT_TICKET_TYPE = "SYSTEM" # or "USER" if needed
+DEFAULT_IMAGE_URL = "http://localhost:8000/media/violations/profile-selected.png"
+
+# ==== Helper: API Send Function ====
+def send_violation_ticket(location_id=DEFAULT_LOCATION_ID, ticket_type=DEFAULT_TICKET_TYPE, image_url=DEFAULT_IMAGE_URL):
+    """
+    Sends a POST request to the violation ticket API.
+    """
+    payload = {
+        "location_id": location_id,
+        "ticket_type": ticket_type,
+        "image": image_url
+    }
+    try:
+        response = requests.post(API_URL, json=payload, timeout=10)
+        if response.status_code == 200 or response.status_code == 201:
+            print(f"Ticket created successfully: {response.json()}")
+        else:
+            print(f"Failed to create ticket. Status {response.status_code}: {response.text}")
+    except Exception as e:
+        print(f"Error sending ticket: {e}")
+
+# ==== Load YOLO model ====
+model = YOLO(YOLO_MODEL)
+
+# Prepare CSV data
+detailed_detections = []
+summary_per_frame = defaultdict(list)
+
+# Iterate over all videos in folder
+for video_file in os.listdir(VIDEO_FOLDER):
+    if not video_file.lower().endswith((".mp4", ".avi", ".mov")):
+        continue
+        
+    video_path = os.path.join(VIDEO_FOLDER, video_file)
+    cap = cv2.VideoCapture(video_path)
+    frame_num = 0
+    
+    # Get video properties
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    frame_skip_interval = int(fps / TARGET_FPS) if (ENABLE_FPS_LIMIT and fps > TARGET_FPS) else 1
+    
+    # Define output video path
+    output_path = os.path.join(VIDEO_FOLDER, f"{OUTPUT_SUFFIX}{video_file}")
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+    out = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
+    
+    print(f"Processing {video_file}... | Target FPS: {TARGET_FPS if ENABLE_FPS_LIMIT else 'FULL'}")
+    
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break
+            
+        frame_num += 1
+        
+        # Only run YOLO on selected frames
+        if frame_num % frame_skip_interval == 0:
+            results = model(frame)[0]
+            detected_in_frame = []
+            
+            # Draw detections on frame
+            for box, conf, cls in zip(results.boxes.xyxy, results.boxes.conf, results.boxes.cls):
+                x1, y1, x2, y2 = map(int, box.tolist())
+                class_id = int(cls)
+                class_name = model.names[class_id]
+                confidence = float(conf)
+                
+                detailed_detections.append({
+                    "video": video_file,
+                    "frame": frame_num,
+                    "class_id": class_id,
+                    "class_name": class_name,
+                    "confidence": confidence,
+                    "x1": x1,
+                    "y1": y1,
+                    "x2": x2,
+                    "y2": y2
+                })
+                detected_in_frame.append(class_name)
+                
+                cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                label = f"{class_name} {confidence:.2f}"
+                cv2.putText(frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX,
+                            0.6, (0, 255, 0), 2, cv2.LINE_AA)
+                            
+            if detected_in_frame:
+                summary_per_frame[(video_file, frame_num)] = list(set(detected_in_frame))
+                
+            # Optional: trigger ticket for certain detections
+            # Example: if "PLASTIC" is detected
+            if "PLASTIC" in detected_in_frame:
+                send_violation_ticket()
+                
+        # Write annotated frame anyway
+        out.write(frame)
+        
+    cap.release()
+    out.release()
+    print(f"Processed {video_file} -> Saved annotated video as {output_path}")
+
+# Save detailed detections
+df = pd.DataFrame(detailed_detections)
+df.to_csv(OUTPUT_CSV, index=False)
+print(f"Detailed detections saved to {OUTPUT_CSV}")
+
+# Save frame-wise summary
+summary_rows = []
+for (video, frame), classes in summary_per_frame.items():
+    summary_rows.append({
+        "video": video,
+        "frame": frame,
+        "detected_objects": ", ".join(classes)
+    })
+summary_df = pd.DataFrame(summary_rows)
+summary_df.to_csv(SUMMARY_CSV, index=False)
+print(f"Frame summary saved to {SUMMARY_CSV}")
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash, caption={Cron job for pipeline automation}, label={lst:cronjob}]
+*/10 * * * * /usr/bin/python3 /workspace/integration/ftpconnect.py >> /var/log/greenify.log 2>&1
+\end{lstlisting}
+
+\end{document}
